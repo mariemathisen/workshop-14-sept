@@ -93,22 +93,63 @@ så frontend og backend deler adresse i nettleseren.
 
 ## Workshop
 
+Denne workshopen handler om hvordan du bygger teknisk forståelse mens du jobber
+agentisk med Claude Code. Målet er ikke å gå fortere, og ikke å lære et verktøy
+å kjenne -- det er å forstå koden du er med på å lage, godt nok til å stå inne
+for den.
+
+Dere skal legge til én feature i en kodebase dere ikke har sett før:
+gjentakende booking, altså at en bruker kan opprette en serie bookinger i stedet
+for én. Hva som kreves av featuren står i steg 2.
+
+Jobben er delt i fem steg som til sammen er én sammenhengende oppgave. Hvert
+steg introduserer en teknikk, og teknikkene læres ved å gjøre jobben, ikke ved
+å bli forklart.
+
+Fordel tre roller i gruppa, og behold dem gjennom hele workshopen: én sitter ved
+tastaturet, én er kildefører og avviser enhver påstand som ikke er belagt med
+fil:linje, og én er motstemme og skal ha minst én innvending i hvert steg. Bytt
+på hvem som sitter ved tastaturet mellom stegene.
+
+To kjøreregler gjelder hele veien. Spørsmål om språket og rammeverket stiller
+dere med `/btw`; spørsmål om denne kodebasen besvarer dere ved å åpne filen. Og
+ingen påstand om koden teller før noen har vist fil:linje.
+
+Tidene på stegene er veiledende. Det er helt greit å ikke bli ferdig.
+
 ### Steg 1: Bli kjent med kodebasen
+
+Orientering før dybde. Dere skal skaffe dere et kart over hva som finnes i
+kodebasen, og så lese koden selv i stedet for å nøye dere med et sammendrag av
+den.
 
 Se [docs/workshop/steg-1-orientering.md](docs/workshop/steg-1-orientering.md).
 
 ### Steg 2: Planlegg
 
+Her bestemmer dere hvordan featuren skal løses. Steget finnes fordi de tekniske
+valgene skal tas bevisst, av dere, før noe som helst blir skrevet.
+
 _Fylles inn._
 
 ### Steg 3: Utfør
+
+Nå implementeres featuren. Agenten kommer til å skrive mesteparten av koden, og
+det er meningen -- poenget er ikke hvem som taster, men at valgene underveis er
+deres.
 
 _Fylles inn._
 
 ### Steg 4: Test
 
+Her ser dere om det faktisk virker. Både i testene og i grensesnittet, for de
+svarer ikke alltid det samme.
+
 _Fylles inn._
 
 ### Steg 5: Quiz før PR
+
+Siste sjekk før endringen sendes fra dere. Kan dere ikke forklare den i egne
+ord, er dere ikke klare til å sende den.
 
 _Fylles inn._
