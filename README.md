@@ -125,7 +125,9 @@ svarer ikke alltid det samme.
 
 Dette steget gjør dere uten agenten, og det er kort med vilje. To ting:
 
-1. Kjør testene, og se etter at de faktisk tester det de skal.
+1. Kjør testene. Forsøk så å få noen av dem til å feile -- endre koden de
+   tester, og se at de faktisk sier fra. En test som står grønn uansett,
+   tester ingenting. Sett koden tilbake etterpå.
 2. Åpne frontenden og utfør featuren manuelt.
 
 ### Steg 5: Quiz før PR
