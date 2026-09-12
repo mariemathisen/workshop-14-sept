@@ -138,14 +138,76 @@ Nå implementeres featuren. Agenten kommer til å skrive mesteparten av koden, o
 det er meningen -- poenget er ikke hvem som taster, men at valgene underveis er
 deres.
 
-_Fylles inn._
+Målet med steget er ikke at dere skal ha skrevet featuren for hånd. Det er at
+dere har tatt noen tekniske valg bevisst, og at dere etterpå kan forklare hva
+som ble lagt til og hvorfor det ser ut som det gjør. Det er et helt annet sted
+å komme til enn enter-enter-enter.
+
+**Oppsett -- gjør dette i pausen før steget.** Åpne `.claude/settings.local.json`.
+Slik ser den ut nå:
+
+```json
+{
+  "outputStyle": "Explanatory"
+}
+```
+
+Bytt den ut med dette:
+
+```json
+{
+  "outputStyle": "Learning"
+}
+```
+
+Det er bare dette ene feltet som endres. Den eneste tingen som kan gå galt her,
+er en skrivefeil i JSON-en. Start så Claude Code på nytt og kjør `claude -c`, så
+beholder dere konteksten fra steg 1 og 2.
+
+**Prompten.** Lim inn denne, med deres eget filnavn i første linje:
+
+```
+Planen min ligger i plans/<gruppe>.md og skal implementeres nå.
+
+Vi jobber i biter. For hver bit:
+- Jeg avgrenser. Foreslå ikke en avgrensning selv.
+- Før du skriver noe: hvilke valg tvinger biten fram som planen ikke avgjør?
+  Still dem som spørsmål med fil:linje. Ikke anbefal noe.
+- Legg TODO(human) der jeg lærer mest om denne kodebasen og valgene i den --
+  altså i beregning, vilkår og regler. Ikke i boilerplate, mapping eller
+  syntaks. Én per bit.
+- Resten skriver du, etter eksisterende mønster i koden.
+- Når biten er ferdig: to linjer om hva som ble endret og hvilket valg det
+  uttrykker. Ikke skriv tester underveis.
+
+Når alle bitene er ferdige: spør meg hvilke tilfeller som skal testes, og
+skriv testene for det jeg svarer. Ikke foreslå tilfellene selv.
+```
+
+Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er en del av
+utviklerjobben, og det finnes ingen fasit.
+
+Rollene fra steg 2 gjelder fortsatt: én ved tastaturet, én kildefører som
+avviser påstander uten fil:linje, én motstemme som skal ha minst én innvending.
+Den som satt ved tastaturet i steg 2, sitter ikke der nå. Spørsmål om språket og
+rammeverket går til `/btw`; spørsmål om denne kodebasen besvarer dere ved å åpne
+filen.
+
+Dere har 45 minutter og styrer tiden selv. Fasilitatorene roper når det er gått
+halvveis og når det er ti minutter igjen. Det er en klokke, ikke en plan.
+
+Steget slutter når testene er skrevet. Ta med `git diff` og testfila videre til
+steg 4.
 
 ### Steg 4: Test
 
 Her ser dere om det faktisk virker. Både i testene og i grensesnittet, for de
 svarer ikke alltid det samme.
 
-_Fylles inn._
+Dette steget gjør dere uten agenten, og det er kort med vilje. To ting:
+
+1. Kjør testene, og se etter at de faktisk tester det de skal.
+2. Åpne frontenden og utfør featuren manuelt.
 
 ### Steg 5: Quiz før PR
 
