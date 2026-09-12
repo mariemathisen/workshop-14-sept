@@ -11,6 +11,10 @@ Brukeren velger rom, starttidspunkt, hvilken ukedag serien skal falle på, og
 hvor mange uker den skal vare. Resultatet er en booking i det valgte rommet på
 den ukedagen, til det tidspunktet, i det antallet uker brukeren ba om.
 
+Dette skal kunne gjøres fra bookingskjemaet i nettleseren. Både backend og
+frontend er altså i scope. Hvordan arbeidet fordeler seg mellom dem, er en av
+beslutningene dere skal ta.
+
 ## Hva systemet skal svare
 
 En serie er enten hel eller ingenting. Kolliderer én av forekomstene i serien
