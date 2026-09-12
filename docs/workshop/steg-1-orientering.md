@@ -7,24 +7,17 @@ sjekker du at det stemmer.
 
 ## Oppgaven
 
-Ha et notatdokument åpent ved siden av -- du skal skrive underveis, og notatene
-brukes i steg 2.
-
 1. **Få appen til å kjøre.** `npm install`, deretter `npm run dev`. Åpne
    frontend-adressen i nettleseren og sjekk at du ser data.
 2. **Kjør orienteringen.** Start Claude Code i rotmappa av repoet og skriv
    `/orienter`. Les hele svaret før du gjør noe annet.
-3. **Marker hva som er antatt.** Svaret skiller mellom det Claude har lest i
-   koden og det den antar. Noter deg antakelsene -- de er kandidater til å være
-   feil.
+3. **Legg merke til hva som er antatt.** Svaret skiller mellom det Claude har
+   lest i koden og det den antar. Antakelsene er kandidater til å være feil.
 4. **Gjør de fire oppgavene svaret avsluttes med.** Selv, i editoren og i
    nettleseren. De står beskrevet under.
-5. **Skriv ned ett spørsmål** du sitter igjen med om kodebasen. Du tar det med
-   til steg 2.
 
-Du er ferdig når du har notert: path, request-body og statuskode fra
-nettverksfanen; resultatet av linjenummer-sjekken; den avskrevne kodelinja;
-valgt skriveoperasjon med begrunnelse; og spørsmålet ditt.
+Du er ferdig når de fire oppgavene er gjort. Det er ikke noe dokument som skal
+leveres -- det du sitter igjen med er kjennskap til kodebasen.
 
 ## Hva `/orienter` gjør, og hvorfor
 
@@ -55,9 +48,9 @@ sjekke at linjenumrene stemmer; skrive av én linje kode ordrett fra filen der
 reglene håndheves; og velge én skriveoperasjon du vil følge i dybden.
 
 Ikke be Claude gjøre dem for deg. Poenget er at du selv verifiserer kartet mot
-terrenget -- det er slik du oppdager når en modell tar feil. Neste steg i
-workshopen bygger direkte på notatene dine herfra, særlig valget av
-skriveoperasjon.
+terrenget -- det er slik du oppdager når en modell tar feil. Det er dette
+grunnlaget steg 2 hviler på: der skal dere planlegge en endring i koden, og en
+plan bygget på gjetninger blir en dårlig plan.
 
 ## Hvor kommandoen ligger
 
