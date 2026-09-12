@@ -249,8 +249,3 @@ utviklere på samme repo vil uansett ha ulike planer. En kommando er det motsatt
 at neste person som kloner skal få den. `settings.local.json` er her et unntak
 fra regelen: den er normalt personlig, men i dette repoet er den committet med
 vilje, fordi steg 3 forutsetter at dere finner den ferdig.
-
-**Ta med dere kommandoene.** Kopier `.claude/skills/orienter/` til
-`~/.claude/skills/`, så har dere `/orienter` i alle repoer dere jobber i
-framover -- uten å committe noe i teamets kodebase, og uten å spørre noen om
-lov. Det samme gjelder `/quiz`. Ingen av dem vet noe om denne kodebasen.

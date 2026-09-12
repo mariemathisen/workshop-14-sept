@@ -4,6 +4,9 @@ Nå vet dere hva som finnes i kodebasen. I dette steget bestemmer dere hvordan
 featuren skal løses -- før én linje kode er skrevet. Kravene står i
 [feature-gjentakende-booking.md](feature-gjentakende-booking.md).
 
+Ingenting skal implementeres her. Når Claude Code til slutt spør om planen skal
+settes ut i livet, svarer dere nei -- featuren skrives i steg 3.
+
 ## Oppgaven
 
 Dere lager to planer, uavhengig av hverandre, og sammenligner dem.
@@ -33,6 +36,9 @@ oppgaven.
 ## Slik kjører dere `/planlegg`
 
 Gå inn i plan mode først -- Shift+Tab, eller skriv `/plan`. Så `/planlegg`.
+
+Når plan mode er ferdig, spør Claude Code om planen skal settes ut i livet. Svar
+nei og bli i plan mode. Som nevnt over: ingenting implementeres i dette steget.
 
 Agenten skal aldri få se gruppas plan. Ikke lim den inn, ikke referer til den,
 ikke spør om agenten er enig i den. Kommandoen er read-only: den skriver ingen
