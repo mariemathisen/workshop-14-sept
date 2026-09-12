@@ -54,7 +54,8 @@ dere har tatt noen tekniske valg bevisst, og at dere etterpå kan forklare hva
 som ble lagt til og hvorfor det ser ut som det gjør. Det er et helt annet sted
 å komme til enn enter-enter-enter.
 
-**Oppsett -- gjør dette i pausen før steget.** Åpne `.claude/settings.local.json`.
+**Oppsett -- gjør dette før dere starter steget.** Åpne
+`.claude/settings.local.json`.
 Slik ser den ut nå:
 
 ```json
