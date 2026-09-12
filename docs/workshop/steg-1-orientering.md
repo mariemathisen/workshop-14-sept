@@ -1,23 +1,14 @@
 # Steg 1: Orientering
 
-## Hva `/orienter` er
+Du skal bli kjent med en kodebase du aldri har sett før, og selv verifisere det
+du får vite om den. Verktøyet du bruker er `/orienter` -- en slash-kommando i
+dette repoet som ber Claude tegne et kart over koden. Du bruker kartet, og så
+sjekker du at det stemmer.
 
-`/orienter` er en slash-kommando som ligger i dette repoet. Den ber Claude om å
-tegne et kart over kodebasen: hva applikasjonen gjør, hvilke lag en request går
-gjennom, hvilke entiteter og endepunkter som finnes, hvor skrivereglene bor, og
-hvordan appen og testene kjøres.
+## Oppgaven
 
-Den finnes fordi orientering kommer før dybde. Når du åpner et repo du aldri har
-sett før, er fristelsen å hoppe rett til filen du tror du skal endre. Da bygger
-du på gjetninger. Kommandoen tvinger fram et oversiktsbilde først, og den ber om
-svar du kan etterprøve -- fil:linje og konkrete navn, ikke generelle forklaringer
-av rammeverket.
-
-## Oppgaven i dette steget
-
-Du skal bli kjent med kodebasen og selv verifisere det du får vite. Sett av
-omtrent 20 minutter. Ha et notatdokument åpent ved siden av -- du skal skrive
-underveis, og notatene brukes i steg 2.
+Sett av omtrent 20 minutter. Ha et notatdokument åpent ved siden av -- du skal
+skrive underveis, og notatene brukes i steg 2.
 
 1. **Få appen til å kjøre.** `npm install`, deretter `npm run dev`. Åpne
    frontend-adressen i nettleseren og sjekk at du ser data.
@@ -35,8 +26,20 @@ Du er ferdig når du har notert: path, request-body og statuskode fra
 nettverksfanen; resultatet av linjenummer-sjekken; den avskrevne kodelinja;
 valgt skriveoperasjon med begrunnelse; og spørsmålet ditt.
 
-Svaret fra `/orienter` er begrenset til 300 ord. Det er med vilje: et kart skal
-være kort nok til å leses i ett jafs.
+## Hva `/orienter` gjør, og hvorfor
+
+Kommandoen ber Claude om å svare på seks ting: hva applikasjonen gjør, hvilke
+lag en request går gjennom, hvilke entiteter og endepunkter som finnes, hvor
+skrivereglene bor, og hvordan appen og testene kjøres.
+
+Den finnes fordi orientering kommer før dybde. Når du åpner et ukjent repo, er
+fristelsen å hoppe rett til filen du tror du skal endre. Da bygger du på
+gjetninger. Kommandoen tvinger fram et oversiktsbilde først, og den ber om svar
+du kan etterprøve -- fil:linje og konkrete navn, ikke generelle forklaringer av
+rammeverket.
+
+Svaret er begrenset til 300 ord. Det er med vilje: et kart skal være kort nok
+til å leses i ett jafs.
 
 ## Den er read-only
 
