@@ -4,9 +4,11 @@ Her låser hver gruppe sin endelige plan på slutten av steg 2, som
 
     plans/<gruppenavn>.md
 
-Én fil per gruppe. Velg et navn selv -- det skal bare være til å kjenne igjen. Planen er den dere har landet på etter å ha sammenlignet
-deres egen plan med agentens -- ikke den ene eller den andre avskrevet, men det
-dere faktisk skal gjøre.
+Én fil per gruppe. Velg et navn selv -- det skal bare være til å kjenne igjen.
+
+Planen er den dere har landet på etter å ha sammenlignet deres egen plan med
+agentens -- ikke den ene eller den andre avskrevet, men det dere faktisk skal
+gjøre.
 
 Formatet er det samme som på arket dere fylte ut: en liste over beslutninger,
 og for hver av dem hva dere velger og hva valget bygger på (fil:linje, eller
