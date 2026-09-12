@@ -38,6 +38,11 @@ Agenten skal aldri få se gruppas plan. Ikke lim den inn, ikke referer til den,
 ikke spør om agenten er enig i den. Kommandoen er read-only: den skriver ingen
 kode og oppretter ingen filer.
 
+Til orientering: plan mode lagrer sitt eget notat utenfor repoet, under
+`~/.claude/plans/`. Det er Claude Code som gjør det, ikke kommandoen. Notatet
+blir aldri tracket av git -- ikke fordi det er ignorert, men fordi git bare ser
+filer som ligger inne i repoet, og dette ligger i hjemmekatalogen din.
+
 ## Kjøreregler
 
 Spørsmål om språket og rammeverket stiller dere med `/btw`. Spørsmål om denne
