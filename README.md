@@ -130,7 +130,7 @@ Se [docs/workshop/steg-1-orientering.md](docs/workshop/steg-1-orientering.md).
 Her bestemmer dere hvordan featuren skal løses. Steget finnes fordi de tekniske
 valgene skal tas bevisst, av dere, før noe som helst blir skrevet.
 
-_Fylles inn._
+Se [docs/workshop/steg-2-planlegging.md](docs/workshop/steg-2-planlegging.md).
 
 ### Steg 3: Utfør
 
