@@ -100,6 +100,18 @@ Når alle bitene er ferdige: spør meg hvilke tilfeller som skal testes, og
 skriv testene for det jeg svarer. Ikke foreslå tilfellene selv.
 ```
 
+**`TODO(human)` er deres del.** Agenten skriver rammen rundt og lar ett hull stå
+tomt -- i en beregning, et vilkår eller en regel, altså der dere må ha forstått
+kodebasen for å skrive noe riktig. Den stopper og venter: den går ikke videre av
+seg selv før hullet er fylt ut. Fyll det ut selv, og gjør det før dere går til
+neste bit.
+
+Står dere fast, finnes det to veier som ikke gir dere svaret gratis. `/btw` for
+språk og syntaks -- den kan ikke lese koden deres, og kan derfor ikke skrive
+hullet for dere. Eller be agenten forklare koden som allerede står der, ikke
+foreslå hva som skal stå i hullet. Agenten legger selv ved en «Guidance»-del når
+den overleverer en TODO; les den som momenter å vurdere, ikke som en oppskrift.
+
 Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er en del av
 utviklerjobben, og det finnes ingen fasit.
 
@@ -109,8 +121,8 @@ Den som satt ved tastaturet i steg 2, sitter ikke der nå. Spørsmål om språke
 rammeverket går til `/btw`; spørsmål om denne kodebasen besvarer dere ved å åpne
 filen.
 
-Steget slutter når testene er skrevet. Ta med `git diff` og testfila videre til
-steg 4.
+Steget slutter når alle TODO-ene er fylt ut og testene er skrevet. Ta med
+`git diff` og testfila videre til steg 4.
 
 ### Steg 4: Test
 
