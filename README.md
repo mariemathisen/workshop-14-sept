@@ -20,11 +20,6 @@ Jobben er delt i fem steg som til sammen er én sammenhengende oppgave. Hvert
 steg introduserer en teknikk, og teknikkene læres ved å gjøre jobben, ikke ved
 å bli forklart.
 
-Fordel tre roller i gruppa, og behold dem gjennom hele workshopen: én sitter ved
-tastaturet, én er kildefører og avviser enhver påstand som ikke er belagt med
-fil:linje, og én er motstemme og skal ha minst én innvending i hvert steg. Bytt
-på hvem som sitter ved tastaturet mellom stegene.
-
 To kjøreregler gjelder hele veien. Spørsmål om språket og rammeverket stiller
 dere med `/btw` -- en innebygget kommando i Claude Code for et sidespørsmål, som
 ikke avbryter det agenten holder på med. Den kan ikke lese filer, og det er
@@ -115,11 +110,9 @@ den overleverer en TODO; les den som momenter å vurdere, ikke som en oppskrift.
 Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er en del av
 utviklerjobben, og det finnes ingen fasit.
 
-Rollene fra steg 2 gjelder fortsatt: én ved tastaturet, én kildefører som
-avviser påstander uten fil:linje, én motstemme som skal ha minst én innvending.
-Den som satt ved tastaturet i steg 2, sitter ikke der nå. Spørsmål om språket og
-rammeverket går til `/btw`; spørsmål om denne kodebasen besvarer dere ved å åpne
-filen.
+Spørsmålene agenten stiller før hver bit skal besvares av dere, ikke av den
+selv. Spørsmål om språket og rammeverket går til `/btw`; spørsmål om denne
+kodebasen besvarer dere ved å åpne filen.
 
 Steget slutter når alle TODO-ene er fylt ut og testene er skrevet. Ta med
 `git diff` og testfila videre til steg 4.
@@ -139,8 +132,7 @@ Dette steget gjør dere uten agenten, og det er kort med vilje. To ting:
 Siste sjekk før endringen sendes fra dere. Kan dere ikke forklare den i egne
 ord, er dere ikke klare til å sende den.
 
-Kjør `/quiz` og svar muntlig. Bytt på hvem som svarer, spørsmål for spørsmål.
-Å slå opp i koden underveis er helt greit -- det er sånn man jobber. Å lete i
+Kjør `/quiz` og svar muntlig. Å slå opp i koden underveis er helt greit -- det er sånn man jobber. Å lete i
 chat-loggen etter hva agenten sa, er ikke poenget.
 
 Til slutt skriver dere PR-beskrivelsen selv, i egne ord. Ikke be agenten
