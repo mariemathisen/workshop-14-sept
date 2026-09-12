@@ -6,9 +6,14 @@ disable-model-invocation: true
 
 Brukeren er ferdig med en endring og skal åpne PR.
 
-Se på endringen i arbeidstreet (`git diff`) og still fem spørsmål om den som
-brukeren ikke kan svare på uten å ha forstått den. Spør om valgene som er tatt
-og konsekvensene av dem, ikke om syntaks eller navngiving.
+Se på endringen brukeren har gjort -- alt som skiller arbeidet deres fra
+hovedgrenen, committet eller ikke. `git diff main` fanger som regel begge deler;
+heter hovedgrenen noe annet, bruk den. Jobber brukeren direkte på hovedgrenen,
+bruk `git diff` og de siste commitene.
+
+Still fem spørsmål om endringen som brukeren ikke kan svare på uten å ha forstått
+den. Spør om valgene som er tatt og konsekvensene av dem, ikke om syntaks eller
+navngiving.
 
 Regler:
 - Ett spørsmål av gangen. Vent på svar før neste.

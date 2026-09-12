@@ -76,9 +76,18 @@ slutter å foreslå forbedringer.
 Gå ut av plan mode med Shift+Tab. Ikke ved å godkjenne planen: det starter
 implementasjonen, og den hører til steg 3.
 
-Be så agenten skrive planen dere landet på til `plans/<gruppenavn>.md` -- velg
-et navn selv. Les gjennom fila før dere går videre. Det er deres plan som skal
-stå der, ikke agentens.
+Lag så deres egen gren, oppkalt etter gruppenavnet:
+
+```bash
+git checkout -b <gruppenavn>
+```
+
+Alt dere gjør fra nå av -- planen og koden -- havner på den grenen, og til slutt
+er det den dere lager en PR fra.
+
+Be så agenten skrive planen dere landet på til `plans/<gruppenavn>.md`. Les
+gjennom fila før dere går videre. Det er deres plan som skal stå der, ikke
+agentens.
 
 ## Kjøreregler
 
