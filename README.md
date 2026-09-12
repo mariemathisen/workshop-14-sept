@@ -214,4 +214,12 @@ Dette steget gjør dere uten agenten, og det er kort med vilje. To ting:
 Siste sjekk før endringen sendes fra dere. Kan dere ikke forklare den i egne
 ord, er dere ikke klare til å sende den.
 
-_Fylles inn._
+Kjør `/quiz` og svar muntlig. Bytt på hvem som svarer, spørsmål for spørsmål.
+Å slå opp i koden underveis er helt greit -- det er sånn man jobber. Å lete i
+chat-loggen etter hva agenten sa, er ikke poenget.
+
+De siste fem minuttene skriver dere PR-beskrivelsen selv, i egne ord. Ikke be
+agenten formulere den. Den skal si hva som ble lagt til, hvilke valg dere tok,
+og hva som eventuelt ikke er dekket.
+
+Sett av rundt 20 minutter på hele steget.
