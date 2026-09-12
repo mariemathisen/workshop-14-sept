@@ -205,44 +205,15 @@ Du kan også typesjekke alt:
 npm run typecheck
 ```
 
-## Slik henger koden sammen
+## Slik er repoet satt opp
 
-En request går gjennom fire lag, og hvert lag har sitt eget ansvar:
+Backenden ligger i `server/`, frontenden i `web/`. Frontenden er React med Vite,
+og dev-serveren proxyer `/api` videre til backend, så de to deler adresse i
+nettleseren.
 
-| Lag | Mappe | Ansvar |
-| --- | --- | --- |
-| Rute | `server/src/routes/` | Kobler HTTP-metode og sti til en controller |
-| Controller | `server/src/controllers/` | Leser request, kaller service, skriver respons |
-| Service | `server/src/services/` | Forretningsreglene |
-| Repository | `server/src/repositories/` | SQL-spørringene, og oversettelse mellom rad og objekt |
-| Base | `server/src/db/` | Databasetilkobling, skjema og seed-data |
+Feil fra API-et kommer som JSON på formen
+`{ "error": { "code": "...", "message": "..." } }`, og frontenden viser
+meldingen som den er.
 
-En POST mot `/api/bookings` går altså `routes/bookingRoutes.ts` →
-`controllers/bookingController.ts` → `services/bookingService.ts` →
-`repositories/bookingRepository.ts` → `db/database.ts`.
-
-Feil kastes som feilklassene i `server/src/errors.ts`. De fanges av
-`server/src/middleware/errorHandler.ts`, som gjør dem om til en HTTP-status og
-et JSON-svar på formen `{ "error": { "code": "...", "message": "..." } }`.
-Frontenden viser meldingen som den er.
-
-### Endepunkter
-
-| Metode | Sti | Beskrivelse |
-| --- | --- | --- |
-| GET | `/api/rooms` | Alle rom |
-| GET | `/api/rooms/:id` | Ett rom |
-| GET | `/api/rooms/:id/bookings` | Bookingene i ett rom |
-| GET | `/api/bookings` | Alle bookinger |
-| POST | `/api/bookings` | Oppretter en booking |
-
-### Database
-
-Skjemaet ligger i `server/src/db/schema.sql` og består av tabellene `rooms` og
-`bookings`. Tidspunkter lagres som ISO 8601-tekst i UTC.
-
-### Frontend
-
-React med Vite, i `web/`. Den henter rom og bookinger fra API-et, viser dem, og
-sender inn skjemaet som en POST. Dev-serveren proxyer `/api` videre til backend,
-så frontend og backend deler adresse i nettleseren.
+Hvordan koden ellers henger sammen -- lagene, endepunktene og skjemaet -- finner
+dere selv. Det er det steg 1 handler om.
