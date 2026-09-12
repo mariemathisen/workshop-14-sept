@@ -133,8 +133,8 @@ Dette steget gjør dere uten agenten, og det er kort med vilje. To ting:
 Siste sjekk før endringen sendes fra dere. Kan dere ikke forklare den i egne
 ord, er dere ikke klare til å sende den.
 
-Kjør `/quiz` og svar muntlig. Å slå opp i koden underveis er helt greit -- det er sånn man jobber. Å lete i
-chat-loggen etter hva agenten sa, er ikke poenget.
+Kjør `/quiz` og svar muntlig. Å slå opp i koden underveis er helt greit -- det
+er sånn man jobber. Å lete i chat-loggen etter hva agenten sa, er ikke poenget.
 
 Til slutt skriver dere PR-beskrivelsen selv, i egne ord. Ikke be agenten
 formulere den. Den skal si hva som ble lagt til, hvilke valg dere tok, og hva
