@@ -112,7 +112,9 @@ fil:linje, og én er motstemme og skal ha minst én innvending i hvert steg. Byt
 på hvem som sitter ved tastaturet mellom stegene.
 
 To kjøreregler gjelder hele veien. Spørsmål om språket og rammeverket stiller
-dere med `/btw`; spørsmål om denne kodebasen besvarer dere ved å åpne filen. Og
+dere med `/btw` -- en innebygget kommando i Claude Code for et sidespørsmål, som
+ikke avbryter det agenten holder på med. Den kan ikke lese filer, og det er
+poenget: spørsmål om denne kodebasen besvarer dere ved å åpne filen selv. Og
 ingen påstand om koden teller før noen har vist fil:linje.
 
 Tidene på stegene er veiledende. Det er helt greit å ikke bli ferdig.
