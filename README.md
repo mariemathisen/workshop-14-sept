@@ -117,9 +117,12 @@ ikke avbryter det agenten holder på med. Den kan ikke lese filer, og det er
 poenget: spørsmål om denne kodebasen besvarer dere ved å åpne filen selv. Og
 ingen påstand om koden teller før noen har vist fil:linje.
 
-Tidene på stegene er veiledende. Det er helt greit å ikke bli ferdig.
+Tidene på stegene er omtrentlige, og ment som en veiledning. Hvordan dere
+fordeler tiden er opp til dere -- poenget med tallene er at ingen skal bruke opp
+formiddagen på steg 1 og aldri komme til resten. Det er helt greit å ikke bli
+ferdig med et steg.
 
-### Steg 1: Bli kjent med kodebasen
+### Steg 1: Bli kjent med kodebasen (ca. 20 min)
 
 Orientering før dybde. Dere skal skaffe dere et kart over hva som finnes i
 kodebasen, og så lese koden selv i stedet for å nøye dere med et sammendrag av
@@ -127,14 +130,14 @@ den.
 
 Se [docs/workshop/steg-1-orientering.md](docs/workshop/steg-1-orientering.md).
 
-### Steg 2: Planlegg
+### Steg 2: Planlegg (ca. 25 min)
 
 Her bestemmer dere hvordan featuren skal løses. Steget finnes fordi de tekniske
 valgene skal tas bevisst, av dere, før noe som helst blir skrevet.
 
 Se [docs/workshop/steg-2-planlegging.md](docs/workshop/steg-2-planlegging.md).
 
-### Steg 3: Utfør
+### Steg 3: Utfør (ca. 45 min)
 
 Nå implementeres featuren. Agenten kommer til å skrive mesteparten av koden, og
 det er meningen -- poenget er ikke hvem som taster, men at valgene underveis er
@@ -201,7 +204,7 @@ halvveis og når det er ti minutter igjen. Det er en klokke, ikke en plan.
 Steget slutter når testene er skrevet. Ta med `git diff` og testfila videre til
 steg 4.
 
-### Steg 4: Test
+### Steg 4: Test (ca. 10 min)
 
 Her ser dere om det faktisk virker. Både i testene og i grensesnittet, for de
 svarer ikke alltid det samme.
@@ -211,7 +214,7 @@ Dette steget gjør dere uten agenten, og det er kort med vilje. To ting:
 1. Kjør testene, og se etter at de faktisk tester det de skal.
 2. Åpne frontenden og utfør featuren manuelt.
 
-### Steg 5: Quiz før PR
+### Steg 5: Quiz før PR (ca. 20 min)
 
 Siste sjekk før endringen sendes fra dere. Kan dere ikke forklare den i egne
 ord, er dere ikke klare til å sende den.
