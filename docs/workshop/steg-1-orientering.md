@@ -13,16 +13,30 @@ du på gjetninger. Kommandoen tvinger fram et oversiktsbilde først, og den ber 
 svar du kan etterprøve -- fil:linje og konkrete navn, ikke generelle forklaringer
 av rammeverket.
 
-## Hvordan du bruker den
+## Oppgaven i dette steget
 
-Start Claude Code i rotmappa av repoet og skriv:
+Du skal bli kjent med kodebasen og selv verifisere det du får vite. Sett av
+omtrent 20 minutter. Ha et notatdokument åpent ved siden av -- du skal skrive
+underveis, og notatene brukes i steg 2.
 
-```
-/orienter
-```
+1. **Få appen til å kjøre.** `npm install`, deretter `npm run dev`. Åpne
+   frontend-adressen i nettleseren og sjekk at du ser data.
+2. **Kjør orienteringen.** Start Claude Code i rotmappa av repoet og skriv
+   `/orienter`. Les hele svaret før du gjør noe annet.
+3. **Marker hva som er antatt.** Svaret skiller mellom det Claude har lest i
+   koden og det den antar. Noter deg antakelsene -- de er kandidater til å være
+   feil.
+4. **Gjør de fire oppgavene svaret avsluttes med.** Selv, i editoren og i
+   nettleseren. De står beskrevet under.
+5. **Skriv ned ett spørsmål** du sitter igjen med om kodebasen. Du tar det med
+   til steg 2.
 
-Svaret er begrenset til 300 ord. Det er med vilje: et kart skal være kort nok til
-å leses i ett jafs.
+Du er ferdig når du har notert: path, request-body og statuskode fra
+nettverksfanen; resultatet av linjenummer-sjekken; den avskrevne kodelinja;
+valgt skriveoperasjon med begrunnelse; og spørsmålet ditt.
+
+Svaret fra `/orienter` er begrenset til 300 ord. Det er med vilje: et kart skal
+være kort nok til å leses i ett jafs.
 
 ## Den er read-only
 
