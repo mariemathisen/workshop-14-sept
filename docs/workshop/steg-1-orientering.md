@@ -7,8 +7,8 @@ sjekker du at det stemmer.
 
 ## Oppgaven
 
-Sett av omtrent 20 minutter. Ha et notatdokument åpent ved siden av -- du skal
-skrive underveis, og notatene brukes i steg 2.
+Ha et notatdokument åpent ved siden av -- du skal skrive underveis, og notatene
+brukes i steg 2.
 
 1. **Få appen til å kjøre.** `npm install`, deretter `npm run dev`. Åpne
    frontend-adressen i nettleseren og sjekk at du ser data.

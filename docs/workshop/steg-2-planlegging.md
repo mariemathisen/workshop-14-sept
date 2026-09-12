@@ -23,15 +23,13 @@ hvis dere har lest det i koden, "antatt" hvis ikke. Dere får ingen liste over
 hva som må besvares. Å finne ut hvilke beslutninger som hører hjemme er
 oppgaven.
 
-## Tidsplan (25 min)
+## Rekkefølgen
 
-| Tid | Hva |
-| --- | --- |
-| 7 min | Gruppas egen plan, på papir. Ingen prompt, ingen agent. |
-| 5 min | `/planlegg` |
-| 9 min | Sammenlign de to planene |
-| 2 min | Lås planen i `plans/` |
-| 2 min | Plenum |
+1. Gruppas egen plan, på papir. Ingen prompt, ingen agent.
+2. `/planlegg`
+3. Sammenlign de to planene. Dette er den viktigste delen -- sett av mest her.
+4. Lås planen i `plans/`
+5. Plenum
 
 ## Slik kjører dere `/planlegg`
 
