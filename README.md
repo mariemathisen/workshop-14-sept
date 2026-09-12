@@ -223,3 +223,34 @@ agenten formulere den. Den skal si hva som ble lagt til, hvilke valg dere tok,
 og hva som eventuelt ikke er dekket.
 
 Sett av rundt 20 minutter på hele steget.
+
+### Hvor Claude Code legger tingene sine
+
+Kommandoene i denne workshopen ligger i repoet, men det er ikke det eneste
+stedet Claude Code leter. Plasseringen er i praksis en beslutning om hvem
+artefakten tilhører:
+
+| Hvor | Hva | Følger med ved kloning |
+| --- | --- | --- |
+| `.claude/skills/` | Kommandoer som hører til dette prosjektet | Ja |
+| `~/.claude/skills/` | Dine egne kommandoer, i alle repoer du jobber i | Nei |
+| `.claude/settings.json` | Innstillinger for prosjektet | Ja |
+| `.claude/settings.local.json` | Dine egne innstillinger for dette prosjektet | Normalt ikke |
+| `~/.claude/plans/` | Notatene plan mode lagrer | Nei |
+
+Alt som ligger under `~/.claude/` er utenfor repoet, og blir derfor aldri
+tracket av git. Ikke fordi det er ignorert, men fordi git bare ser filer som
+ligger inne i mappa du klonet.
+
+Det er derfor planer havner i hjemmekatalogen: en plan er et arbeidsnotat
+knyttet til deg i øyeblikket, den er utdatert så snart koden er skrevet, og to
+utviklere på samme repo vil uansett ha ulike planer. En kommando er det motsatte
+-- den beskriver hvordan nettopp dette prosjektet skal jobbes med, og da vil du
+at neste person som kloner skal få den. `settings.local.json` er her et unntak
+fra regelen: den er normalt personlig, men i dette repoet er den committet med
+vilje, fordi steg 3 forutsetter at dere finner den ferdig.
+
+**Ta med dere kommandoene.** Kopier `.claude/skills/orienter/` til
+`~/.claude/skills/`, så har dere `/orienter` i alle repoer dere jobber i
+framover -- uten å committe noe i teamets kodebase, og uten å spørre noen om
+lov. Det samme gjelder `/quiz`. Ingen av dem vet noe om denne kodebasen.
