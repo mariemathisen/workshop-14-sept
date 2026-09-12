@@ -95,7 +95,7 @@ så frontend og backend deler adresse i nettleseren.
 
 ### Steg 1: Bli kjent med kodebasen
 
-_Fylles inn._
+Se [docs/workshop/steg-1-orientering.md](docs/workshop/steg-1-orientering.md).
 
 ### Steg 2: Planlegg
 
