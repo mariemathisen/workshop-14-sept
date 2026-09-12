@@ -76,9 +76,9 @@ slutter å foreslå forbedringer.
 Gå ut av plan mode med Shift+Tab. Ikke ved å godkjenne planen: det starter
 implementasjonen, og den hører til steg 3.
 
-Be så agenten skrive planen dere landet på til
-`plans/gruppe-<nr>-gjentakende-booking.md`. Les gjennom fila før dere går
-videre. Det er deres plan som skal stå der, ikke agentens.
+Be så agenten skrive planen dere landet på til `plans/<gruppenavn>.md` -- velg
+et navn selv. Les gjennom fila før dere går videre. Det er deres plan som skal
+stå der, ikke agentens.
 
 ## Kjøreregler
 
@@ -92,4 +92,4 @@ av dem.
 - Kravene: `docs/workshop/feature-gjentakende-booking.md`
 - Arket dere fyller ut: `docs/workshop/utskrifter/steg-2-gruppens-plan.md`
 - Kommandoen: `.claude/skills/planlegg/SKILL.md`
-- Den låste planen: `plans/gruppe-<nr>-gjentakende-booking.md`
+- Den låste planen: `plans/<gruppenavn>.md`

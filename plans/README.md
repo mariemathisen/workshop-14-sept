@@ -2,9 +2,9 @@
 
 Her låser hver gruppe sin endelige plan på slutten av steg 2, som
 
-    plans/gruppe-<nr>-gjentakende-booking.md
+    plans/<gruppenavn>.md
 
-Én fil per gruppe. Planen er den dere har landet på etter å ha sammenlignet
+Én fil per gruppe. Velg et navn selv -- det skal bare være til å kjenne igjen. Planen er den dere har landet på etter å ha sammenlignet
 deres egen plan med agentens -- ikke den ene eller den andre avskrevet, men det
 dere faktisk skal gjøre.
 

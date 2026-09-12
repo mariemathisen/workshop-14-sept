@@ -79,7 +79,7 @@ beholder dere konteksten fra steg 1 og 2.
 **Prompten.** Lim inn denne, med deres eget filnavn i første linje:
 
 ```
-Planen min ligger i plans/<gruppe>.md og skal implementeres nå.
+Planen min ligger i plans/<gruppenavn>.md og skal implementeres nå.
 
 Vi jobber i biter. For hver bit:
 - Jeg avgrenser. Foreslå ikke en avgrensning selv.
