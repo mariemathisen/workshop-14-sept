@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS bookings (
   booked_by TEXT NOT NULL,
   starts_at TEXT NOT NULL,
   ends_at TEXT NOT NULL,
-  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   CHECK (starts_at < ends_at)
 );
 

@@ -328,6 +328,13 @@ Du kan også typesjekke alt:
 npm run typecheck
 ```
 
+Linting og formatering gjøres med Biome:
+
+```bash
+npm run lint     # sjekker
+npm run format   # retter det som kan rettes automatisk
+```
+
 ## Slik er repoet satt opp
 
 Backenden ligger i `server/`, frontenden i `web/`. Frontenden er React med Vite,

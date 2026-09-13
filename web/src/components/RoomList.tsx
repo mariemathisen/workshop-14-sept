@@ -5,7 +5,11 @@ type Props = {
   bookings: Booking[];
 };
 
-const dayFormat = new Intl.DateTimeFormat(undefined, { weekday: 'short', day: 'numeric', month: 'short' });
+const dayFormat = new Intl.DateTimeFormat(undefined, {
+  weekday: 'short',
+  day: 'numeric',
+  month: 'short',
+});
 const timeFormat = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit' });
 
 function formatRange(startsAt: string, endsAt: string): string {

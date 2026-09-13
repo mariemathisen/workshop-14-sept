@@ -1,6 +1,6 @@
 import { once } from 'node:events';
-import type { AddressInfo } from 'node:net';
 import type { Server } from 'node:http';
+import type { AddressInfo } from 'node:net';
 import { createApp } from '../../src/app.ts';
 import { closeDatabase, connectDatabase } from '../../src/db/database.ts';
 import { initializeDatabase } from '../../src/db/initialize.ts';

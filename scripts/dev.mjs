@@ -20,7 +20,7 @@ const children = targets.map(({ name, color }) => {
       buffer += chunk;
       const lines = buffer.split('\n');
       buffer = lines.pop() ?? '';
-      for (const line of lines) target.write(prefix + line + '\n');
+      for (const line of lines) target.write(`${prefix}${line}\n`);
     });
   };
 

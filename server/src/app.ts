@@ -1,5 +1,5 @@
-import express from 'express';
 import type { Express } from 'express';
+import express from 'express';
 import { errorHandler } from './middleware/errorHandler.ts';
 import { bookingRoutes } from './routes/bookingRoutes.ts';
 import { roomRoutes } from './routes/roomRoutes.ts';

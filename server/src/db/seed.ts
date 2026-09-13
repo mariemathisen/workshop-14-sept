@@ -8,10 +8,38 @@ const rooms = [
 ];
 
 const bookings = [
-  { room: 'Fjorden', title: 'Designgjennomgang', bookedBy: 'ingrid.ruud', dayOffset: 0, startHour: 9, endHour: 10 },
-  { room: 'Fjorden', title: 'Kundemøte', bookedBy: 'jonas.berg', dayOffset: 0, startHour: 13, endHour: 15 },
-  { room: 'Kaia', title: 'Intervju', bookedBy: 'sara.lind', dayOffset: 0, startHour: 11, endHour: 12 },
-  { room: 'Loftet', title: 'Teknisk avklaring', bookedBy: 'ingrid.ruud', dayOffset: 1, startHour: 10, endHour: 11 },
+  {
+    room: 'Fjorden',
+    title: 'Designgjennomgang',
+    bookedBy: 'ingrid.ruud',
+    dayOffset: 0,
+    startHour: 9,
+    endHour: 10,
+  },
+  {
+    room: 'Fjorden',
+    title: 'Kundemøte',
+    bookedBy: 'jonas.berg',
+    dayOffset: 0,
+    startHour: 13,
+    endHour: 15,
+  },
+  {
+    room: 'Kaia',
+    title: 'Intervju',
+    bookedBy: 'sara.lind',
+    dayOffset: 0,
+    startHour: 11,
+    endHour: 12,
+  },
+  {
+    room: 'Loftet',
+    title: 'Teknisk avklaring',
+    bookedBy: 'ingrid.ruud',
+    dayOffset: 1,
+    startHour: 10,
+    endHour: 11,
+  },
 ];
 
 function atHour(dayOffset: number, hour: number): string {
@@ -35,8 +63,13 @@ export function seedDatabase(db: DatabaseSync): void {
   );
 
   for (const booking of bookings) {
+    const roomId = roomIds.get(booking.room);
+    if (roomId === undefined) {
+      throw new Error(`Seed-data viser til ukjent rom: ${booking.room}`);
+    }
+
     insertBooking.run(
-      roomIds.get(booking.room)!,
+      roomId,
       booking.title,
       booking.bookedBy,
       atHour(booking.dayOffset, booking.startHour),

@@ -34,11 +34,9 @@ export function findAll(): Booking[] {
 }
 
 export function findById(id: number): Booking | null {
-  const row = getDatabase()
-    .prepare(`SELECT ${columns} FROM bookings WHERE id = ?`)
-    .get(id) as BookingRow | undefined;
+  const row = getDatabase().prepare(`SELECT ${columns} FROM bookings WHERE id = ?`).get(id);
 
-  return row ? toBooking(row) : null;
+  return row ? toBooking(row as BookingRow) : null;
 }
 
 export function findByRoom(roomId: number): Booking[] {
@@ -69,5 +67,10 @@ export function insert(booking: NewBooking): Booking {
     )
     .run(booking.roomId, booking.title, booking.bookedBy, booking.startsAt, booking.endsAt);
 
-  return findById(Number(result.lastInsertRowid))!;
+  const created = findById(Number(result.lastInsertRowid));
+  if (!created) {
+    throw new Error('Klarte ikke å lese tilbake bookingen som nettopp ble lagret');
+  }
+
+  return created;
 }

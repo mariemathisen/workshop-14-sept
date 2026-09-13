@@ -28,7 +28,7 @@ export function findAll(): Room[] {
 export function findById(id: number): Room | null {
   const row = getDatabase()
     .prepare('SELECT id, name, floor, capacity FROM rooms WHERE id = ?')
-    .get(id) as RoomRow | undefined;
+    .get(id);
 
-  return row ? toRoom(row) : null;
+  return row ? toRoom(row as RoomRow) : null;
 }
