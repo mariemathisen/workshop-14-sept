@@ -1,11 +1,4 @@
-# Room booking
-
-En liten bookingtjeneste for møterom. Du ser hvilke rom som finnes og hva som
-allerede er booket i dem, og du kan opprette en ny booking for ett rom i et gitt
-tidsrom. Backend håndhever reglene for når en booking er gyldig, blant annet at
-to bookinger i samme rom ikke kan overlappe hverandre.
-
-## Workshop
+# Workshop: Claude Code i en ukjent kodebase
 
 Denne workshopen handler om hvordan du bygger teknisk forståelse mens du jobber
 agentisk med Claude Code. Målet er ikke å gå fortere, og ikke å lære et verktøy
@@ -28,7 +21,7 @@ ingen påstand om koden teller før noen har vist fil:linje.
 
 Node-kravet, oppstart av appen og kjøring av testene står nederst i denne fila.
 
-### Steg 1: Bli kjent med kodebasen
+## Steg 1: Bli kjent med kodebasen
 
 Orientering før dybde. Dere skal skaffe dere et kart over hva som finnes i
 kodebasen, og så lese koden selv i stedet for å nøye dere med et sammendrag av
@@ -36,14 +29,14 @@ den.
 
 Se [docs/workshop/steg-1-orientering.md](docs/workshop/steg-1-orientering.md).
 
-### Steg 2: Planlegg
+## Steg 2: Planlegg
 
 Her bestemmer dere hvordan featuren skal løses. Steget finnes fordi de tekniske
 valgene skal tas bevisst, av dere, før noe som helst blir skrevet.
 
 Se [docs/workshop/steg-2-planlegging.md](docs/workshop/steg-2-planlegging.md).
 
-### Steg 3: Utfør
+## Steg 3: Utfør
 
 Nå implementeres featuren. Agenten kommer til å skrive mesteparten av koden, og
 det er meningen -- poenget er ikke hvem som taster, men at valgene underveis er
@@ -118,7 +111,7 @@ kodebasen besvarer dere ved å åpne filen.
 Steget slutter når alle TODO-ene er fylt ut og testene er skrevet. Ta med
 `git diff` og testfila videre til steg 4.
 
-### Steg 4: Test
+## Steg 4: Test
 
 Her ser dere om det faktisk virker. Både i testene og i grensesnittet, for de
 svarer ikke alltid det samme.
@@ -130,7 +123,7 @@ Dette steget gjør dere uten agenten, og det er kort med vilje. To ting:
    tester ingenting. Sett koden tilbake etterpå.
 2. Åpne frontenden og utfør featuren manuelt.
 
-### Steg 5: Quiz før PR
+## Steg 5: Quiz før PR
 
 Siste sjekk før endringen sendes fra dere. Kan dere ikke forklare den i egne
 ord, er dere ikke klare til å sende den.
@@ -142,7 +135,7 @@ Til slutt skriver dere PR-beskrivelsen selv, i egne ord. Ikke be agenten
 formulere den. Den skal si hva som ble lagt til, hvilke valg dere tok, og hva
 som eventuelt ikke er dekket.
 
-### Hvor Claude Code legger tingene sine
+## Hvor Claude Code legger tingene sine
 
 Kommandoene i denne workshopen ligger i repoet, men det er ikke det eneste
 stedet Claude Code leter. Plasseringen er i praksis en beslutning om hvem
@@ -169,6 +162,13 @@ fra regelen: den er normalt personlig, men i dette repoet er den committet med
 vilje, fordi steg 3 forutsetter at dere finner den ferdig.
 
 ---
+
+## Kodebasen: Room booking
+
+En liten bookingtjeneste for møterom. Du ser hvilke rom som finnes og hva som
+allerede er booket i dem, og du kan opprette en ny booking for ett rom i et gitt
+tidsrom. Backend håndhever reglene for når en booking er gyldig, blant annet at
+to bookinger i samme rom ikke kan overlappe hverandre.
 
 ## Krav
 
