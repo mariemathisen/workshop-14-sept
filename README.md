@@ -26,7 +26,8 @@ er deltakende i utviklingsprosessen.
 >
 > 💡 **Tips:** Spørsmål om språket og rammeverket stiller dere med `/btw`, en
 > innebygget kommando i Claude Code for et sidespørsmål. Den avbryter ikke det
-> agenten holder på med, og kan ikke lese filer.
+> agenten holder på med. Den kan ikke lese filer selv, men den ser det agenten
+> allerede har lest.
 >
 > <div style="height:1px"></div>
 
@@ -323,9 +324,8 @@ gjør.
    > ##### 💡 Tips
    >
    > Står dere fast, finnes det to veier som ikke gir svaret gratis: `/btw` for
-   > språk og syntaks, som ikke kan lese koden deres, eller be agenten
-   > forklare koden som allerede står der, ikke foreslå hva som skal stå i
-   > hullet.
+   > språk og syntaks, eller be agenten forklare koden som allerede står der,
+   > ikke foreslå hva som skal stå i hullet.
    >
    > <div style="height:1px"></div>
 
