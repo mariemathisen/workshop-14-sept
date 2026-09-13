@@ -22,3 +22,7 @@ export type NewBooking = {
   startsAt: string;
   endsAt: string;
 };
+
+export type NewBookingSeries = NewBooking & {
+  repeatUntil: string;
+};

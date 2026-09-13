@@ -1,4 +1,5 @@
 import { getDatabase } from '../db/database.ts';
+import { ValidationError } from '../errors.ts';
 import type { Booking, NewBooking } from '../types.ts';
 
 type BookingRow = {
@@ -73,4 +74,26 @@ export function insert(booking: NewBooking): Booking {
   }
 
   return created;
+}
+
+/**
+ * Skriver flere bookinger i én transaksjon: enten havner alle i databasen,
+ * eller ingen av dem.
+ */
+export function insertMany(bookings: NewBooking[]): Booking[] {
+  if (bookings.length === 0) {
+    throw new ValidationError('A series must hold at least one booking');
+  }
+
+  const db = getDatabase();
+  db.exec('BEGIN');
+
+  try {
+    const created = bookings.map(insert);
+    db.exec('COMMIT');
+    return created;
+  } catch (error) {
+    db.exec('ROLLBACK');
+    throw error;
+  }
 }

@@ -22,3 +22,8 @@ export type NewBooking = {
   startsAt: string;
   endsAt: string;
 };
+
+export type NewBookingSeries = NewBooking & {
+  /** Siste forekomst i serien starter ikke senere enn dette tidspunktet. */
+  repeatUntil: string;
+};

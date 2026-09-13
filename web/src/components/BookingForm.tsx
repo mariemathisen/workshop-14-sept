@@ -8,44 +8,100 @@ type Props = {
   onCreated: () => Promise<void>;
 };
 
-function localInputValue(date: Date): string {
+const MAX_SERIES_WEEKS = 26;
+
+const weekdayFormat = new Intl.DateTimeFormat(undefined, { weekday: 'long' });
+
+/** Dagens dato pluss et antall dager, som "2026-09-22". */
+function isoDate(daysFromNow: number): string {
+  const date = new Date();
+  date.setDate(date.getDate() + daysFromNow);
   const offset = date.getTimezoneOffset() * 60_000;
-  return new Date(date.getTime() - offset).toISOString().slice(0, 16);
+  return new Date(date.getTime() - offset).toISOString().slice(0, 10);
 }
 
-function defaultTime(hour: number): string {
-  const date = new Date();
-  date.setDate(date.getDate() + 1);
-  date.setHours(hour, 0, 0, 0);
-  return localInputValue(date);
+/**
+ * Datoene regnes om på kalenderen og ikke på klokka. Lokal tid har døgn på 23
+ * og 25 timer to ganger i året, og en differanse i millisekunder ville bommet
+ * med én forekomst i akkurat de ukene.
+ */
+function dayNumber(value: string): number {
+  const [year, month, day] = value.split('-').map(Number);
+  return Date.UTC(year, month - 1, day) / 86_400_000;
+}
+
+function shiftDays(value: string, days: number): string {
+  return new Date((dayNumber(value) + days) * 86_400_000).toISOString().slice(0, 10);
+}
+
+/** Leser "2026-09-22" og "09:00" som lokal tid, slik datetime-local gjorde. */
+function toLocalDate(date: string, time: string): Date {
+  return new Date(`${date}T${time}`);
+}
+
+/**
+ * Siste øyeblikk av den lokale dagen. Serien skal gå til og med datoen
+ * brukeren valgte, og et klokkeslett ville forskjøvet seg en time i forhold
+ * til forekomstene hvis sommertiden slår inn underveis.
+ */
+function endOfLocalDay(date: string): Date {
+  return new Date(toLocalDate(shiftDays(date, 1), '00:00').getTime() - 1);
 }
 
 export function BookingForm({ rooms, onCreated }: Props) {
   const [roomId, setRoomId] = useState(String(rooms[0]?.id ?? ''));
   const [title, setTitle] = useState('');
   const [bookedBy, setBookedBy] = useState('');
-  const [startsAt, setStartsAt] = useState(defaultTime(9));
-  const [endsAt, setEndsAt] = useState(defaultTime(10));
+  const [date, setDate] = useState(isoDate(1));
+  const [startTime, setStartTime] = useState('09:00');
+  const [endTime, setEndTime] = useState('10:00');
+  const [recurring, setRecurring] = useState(false);
+  const [repeatUntil, setRepeatUntil] = useState(isoDate(1));
   const [error, setError] = useState<string | null>(null);
   const [confirmation, setConfirmation] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
+  const spanInDays = dayNumber(repeatUntil) - dayNumber(date);
+  const occurrences = Math.floor(spanInDays / 7) + 1;
+
+  let seriesError: string | null = null;
+  if (recurring && spanInDays < 0) {
+    seriesError = 'Repeat until must not be before the date.';
+  } else if (recurring && spanInDays > MAX_SERIES_WEEKS * 7) {
+    seriesError = `A series can span at most ${MAX_SERIES_WEEKS} weeks.`;
+  }
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    if (seriesError) {
+      return;
+    }
+
     setError(null);
     setConfirmation(null);
     setSaving(true);
 
+    const booking = {
+      roomId: Number(roomId),
+      title,
+      bookedBy,
+      startsAt: toLocalDate(date, startTime).toISOString(),
+      endsAt: toLocalDate(date, endTime).toISOString(),
+    };
+    const roomName = rooms.find((room) => room.id === booking.roomId)?.name;
+
     try {
-      const booking = await api.createBooking({
-        roomId: Number(roomId),
-        title,
-        bookedBy,
-        startsAt: new Date(startsAt).toISOString(),
-        endsAt: new Date(endsAt).toISOString(),
-      });
+      if (recurring) {
+        const series = await api.createBookingSeries({
+          ...booking,
+          repeatUntil: endOfLocalDay(repeatUntil).toISOString(),
+        });
+        setConfirmation(`Booked ${roomName} ${series.length} times.`);
+      } else {
+        await api.createBooking(booking);
+        setConfirmation(`Booked ${roomName}.`);
+      }
       setTitle('');
-      setConfirmation(`Booked ${rooms.find((room) => room.id === booking.roomId)?.name}.`);
       await onCreated();
     } catch (caught) {
       setError(caught instanceof api.ApiError ? caught.message : 'Could not reach the API');
@@ -90,29 +146,72 @@ export function BookingForm({ rooms, onCreated }: Props) {
         </label>
 
         <label>
-          From
+          Date
           <input
-            type="datetime-local"
-            value={startsAt}
-            onChange={(event) => setStartsAt(event.target.value)}
+            type="date"
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
             required
           />
         </label>
 
-        <label>
-          To
+        <div className="field-row">
+          <label>
+            From
+            <input
+              type="time"
+              value={startTime}
+              onChange={(event) => setStartTime(event.target.value)}
+              required
+            />
+          </label>
+
+          <label>
+            To
+            <input
+              type="time"
+              value={endTime}
+              onChange={(event) => setEndTime(event.target.value)}
+              required
+            />
+          </label>
+        </div>
+
+        <label className="field-inline">
           <input
-            type="datetime-local"
-            value={endsAt}
-            onChange={(event) => setEndsAt(event.target.value)}
-            required
+            type="checkbox"
+            checked={recurring}
+            onChange={(event) => setRecurring(event.target.checked)}
           />
+          Repeat weekly
         </label>
 
-        <button type="submit" disabled={saving}>
+        {recurring && (
+          <label>
+            Repeat until
+            <input
+              type="date"
+              value={repeatUntil}
+              min={date}
+              max={shiftDays(date, MAX_SERIES_WEEKS * 7)}
+              onChange={(event) => setRepeatUntil(event.target.value)}
+              required
+            />
+          </label>
+        )}
+
+        {recurring && !seriesError && (
+          <p className="form-message form-hint">
+            Every {weekdayFormat.format(toLocalDate(date, startTime))}, {occurrences}{' '}
+            {occurrences === 1 ? 'booking' : 'bookings'}.
+          </p>
+        )}
+
+        <button type="submit" disabled={saving || seriesError !== null}>
           {saving ? 'Booking…' : 'Book room'}
         </button>
 
+        {seriesError && <p className="form-message form-error">{seriesError}</p>}
         {error && <p className="form-message form-error">{error}</p>}
         {confirmation && <p className="form-message form-confirmation">{confirmation}</p>}
       </form>
