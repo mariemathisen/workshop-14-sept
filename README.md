@@ -1,34 +1,32 @@
-# Workshop: Claude Code i en ukjent kodebase
+# Workshop
 
-Dere skal legge til én feature i en kodebase dere aldri har sett før:
-gjentakende booking, altså at en bruker kan opprette en serie bookinger i stedet
-for én. Det gjør dere sammen med Claude Code, og agenten kommer til å skrive
-mesteparten av koden. Det er med vilje. Hva som kreves av featuren står i
-steg 2.
+Denne workshopen handler om hvordan du bygger teknisk forståelse mens du jobber
+agentisk med Claude Code. Målet for workshopen er ikke å gå fortere, det er å
+forstå koden vi er med på å lage, godt nok til å stå inne for den samtidig som
+vi bygger teknisk forståelse.
 
-Målet er ikke å gå fortere, og ikke å lære et verktøy å kjenne. Det er å forstå
-koden dere er med på å lage, godt nok til å stå inne for den. Dere er i mål når
-featuren virker og dere kan forklare hver beslutning i den til en kollega som
-ikke satt der.
+I løpet av workshopen skal dere legge til én feature i en kodebase dere ikke har
+sett før: gjentakende booking, altså at en bruker kan opprette en serie
+bookinger i stedet for én. Hva som kreves av featuren står i steg 2.
 
-Jobben er delt i fem steg som til sammen er én sammenhengende oppgave. Hvert
-steg introduserer en teknikk dere kan ta med til et hvilket som helst repo
-etterpå, og teknikkene læres ved å gjøre jobben, ikke ved å bli forklart.
+I workshopen er denne jobben delt i fem steg som til slutt gjør at denne nye
+featuren blir lagt til. Første steg går ut på å bli kjent med kodebasen, i andre
+steg skriver vi en plan for arbeidet, i tredje og fjerde steg implementerer og
+tester vi, og i det siste steget forbereder vi oss på å lage en PR. Hvert steg
+introduserer en teknikk hvor man baserer seg på Claude Code, men selv er
+deltakende i utviklingsprosessen.
 
 To kjøreregler gjelder hele veien. Spørsmål om språket og rammeverket stiller
-dere med `/btw` -- en innebygget kommando i Claude Code for et sidespørsmål, som
-ikke avbryter det agenten holder på med. Den kan ikke lese filer, og det er
-poenget: spørsmål om denne kodebasen besvarer dere ved å åpne filen selv. Og
-ingen påstand om koden teller før noen har vist fil:linje.
-
-Hva appen gjør, hvordan den startes og hvordan testene kjøres, står nederst i
-denne fila.
+dere med `/btw`, en innebygget kommando i Claude Code for et sidespørsmål. Den
+avbryter ikke det agenten holder på med, og kan ikke lese filer. Og ingen
+påstand om koden teller før noen har vist fil:linje.
 
 ## Steg 1: Bli kjent med kodebasen
 
-Orientering før dybde. Dere skal skaffe dere et kart over hva som finnes i
-kodebasen, og så lese koden selv i stedet for å nøye dere med et sammendrag av
-den. Verktøyet er `/orienter`, en kommando som ligger i dette repoet.
+Dette steget går ut på å orientere seg i kodebasen. Dere skal skaffe dere et
+kart over hva som finnes i den, og så lese koden selv i stedet for å nøye dere
+med et sammendrag. Verktøyet er `/orienter`, en kommando som ligger i dette
+repoet.
 
 1. **Få appen til å kjøre.** `npm install`, deretter `npm run dev`. Åpne
    frontend-adressen i nettleseren og sjekk at dere ser data.
