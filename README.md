@@ -152,45 +152,29 @@ deres. Den planen er det dere etterpå skal sammenlikne med deres egen.
 > Formatene er like med vilje. To lister som ser like ut kan legges ved siden av
 > hverandre og sammenlignes punkt for punkt.
 
-> ##### Plan mode -- alternativet vi ikke valgte
+> ##### Plan mode som alternativ fremgangsmåte
 >
 > Claude Code har en modus der agenten får lese filer og foreslå, men er
 > avskåret fra å endre noe på disk. Den slås på med Shift+Tab, eller ved å
 > skrive `/plan`.
 >
-> Dette steget kunne vært gjort i plan mode i stedet for med `/planlegg` --
-> samme jobb, men med prompten skrevet for hånd hver gang. Vi lar modusen stå
-> av i dag, av tre grunner:
+> Dette steget kunne vært gjort i plan mode i stedet. Vi lar den stå av i dag fordi
+> den passer en arbeidsform der agenten eier planen og dere godkjenner den.
+> Her er det omvendt: planen er deres, og agentens forslag er noe dere skal
+> være uenige med.
 >
-> - `/planlegg` sier allerede fra at den ikke skal skrive kode, så sperren har
->   lite å gjøre her.
-> - Steget avsluttes med at dere ber agenten skrive planen til fil. Det ville
->   plan mode blokkert.
-> - Modusen spør underveis om planen skal settes ut i livet, og et ja der
->   starter implementasjonen. Det er den vanligste måten et planleggingssteg
->   sporer av på.
->
-> Det er altså dere som holder igjen i dag, ikke verktøyet. Modusen er verdt å
-> kjenne til likevel -- den er nyttig i vanlig arbeid, og står forklart i
+> I vanlig arbeid er modusen et fint verktøy, og verdt å kjenne til:
 > [dokumentasjonen om permission modes](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode).
 
 > ##### ⚠️ Pass på
 >
-> Ingenting implementeres i dette steget. Agenten kommer til å tilby det, og
-> noen av dere kommer til å ha lyst. Svar nei -- featuren skrives i steg 3.
+> Ingenting skal implementeres i dette steget. Agenten kommer til å tilby det, men featuren skal skrives i steg 3.
 
 #### 3. Sammenlign planene
 
-Først dere imellom, så sammen med agenten. Dette er den viktigste delen, og den
-skal ha mest tid.
+Først dere imellom, så sammen med agenten. Hvor spriker deres plan fra agentens plan, hva tror dere blir det beste totale forslaget. 
 
-> ##### Slik gjør dere det
->
-> To planer som spriker er hele læringen i steget. Snakk først sammen: hvor er
-> de uenige, og hvilken uenighet betyr egentlig noe?
->
-> Ta så diskusjonen med agenten -- «her er det vi kom fram til» -- og iterer
-> videre.
+Ta så diskusjonen med agenten: «her er det vi kom fram til» og iterer til dere er fornøyde.
 
 > ##### 💡 Tips
 >
@@ -199,7 +183,7 @@ skal ha mest tid.
 > som går galt hvis dere tar feil. Da får dere en motstemme i stedet for et
 > ekko.
 
-#### 4. Lag grenen deres
+#### 4. Lag branchen deres
 
 ```bash
 git checkout -b <gruppenavn>
@@ -208,16 +192,7 @@ git checkout -b <gruppenavn>
 #### 5. Lås planen
 
 Be agenten skrive planen dere landet på til `plans/ferdig-plan.md`, og les
-gjennom fila. Det er deres plan som skal stå der -- ikke agentens, og ikke den
-ene eller den andre avskrevet, men det dere faktisk skal gjøre. Har dere endret
-mening om noe underveis, skriv kort hvorfor.
-
-#### 6. Plenum
-
-### Når er dere ferdige?
-
-Når dere kan si grunnen til hver beslutning -- ikke når agenten slutter å
-foreslå forbedringer.
+gjennom fila.
 
 ---
 
