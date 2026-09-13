@@ -23,5 +23,6 @@ Regler:
 - Er svaret riktig, si det med ett ord og gå videre.
 - Ikke endre filer, ikke skriv kode, ikke commit.
 
-Når de fem spørsmålene er besvart: si hva PR-beskrivelsen bør ha med, som en
-kort liste. Ikke skriv PR-beskrivelsen.
+Når de fem spørsmålene er besvart: avslutt. Ikke si hva PR-beskrivelsen bør ha
+med, ikke lag en liste til den, og ikke oppsummer endringen. PR-beskrivelsen
+skal brukeren skrive selv, i egne ord -- det er hele poenget med steget.
