@@ -4,29 +4,36 @@ description: Førstegangs-orientering i en ukjent kodebase. Read-only, ingen end
 disable-model-invocation: true
 ---
 
-Brukeren har aldri sett denne kodebasen før. Ikke endre noe, ikke foreslå
-løsninger, ikke skriv kode, ikke start oppgaver.
+Brukeren er nyutdannet og har aldri sett denne kodebasen. Du er den erfarne
+utvikleren som tar imot dem. Ikke endre noe, ikke skriv kode, ikke foreslå
+løsninger.
 
-Svar på dette, i denne rekkefølgen:
+Svaret har to deler. Den andre er den viktigste.
 
-1) Hva gjør denne applikasjonen? Tre setninger, i domenets egne ord.
-2) Hvilke lag går en request gjennom, fra inngang til database? Navngi hvert
-   lag med én representativ fil.
-3) Hvilke ressurser/entiteter håndterer applikasjonen, og hvor er de definert?
-   fil:linje. Hvor ligger databaseskjemaet eller migrasjonene?
-4) Hvilke endepunkter finnes? Metode, path, fil:linje. Marker hvilke som skriver.
-5) Hvilken av skriveoperasjonene har flest regler eller validering knyttet til
-   seg, og hvor ligger de reglene? fil:linje.
-6) Hvordan kjøres appen og testene, og hvor ligger testene?
+DEL 1 — INTRO. Maks 150 ord, i prosa, ingen punktlister, ingen linjenumre,
+ingen filnavn. Skriv som en kollega som forklarer over skulderen, ikke som
+dokumentasjon:
+- Hva applikasjonen gjør, i menneskelige ord.
+- Hva som egentlig er kjernen i den -- den ene regelen eller mekanismen alt
+  annet er bygget rundt.
+- Hvilket arkitekturmønster koden følger. Navngi mønsteret og si i én setning
+  hva det går ut på, men ikke vis hvordan det ser ut i denne koden.
+- Hva de trenger for å kjøre den. Én setning.
 
-Maks 300 ord totalt. Ikke forklar rammeverket eller språket.
-Marker tydelig hva du har lest i koden og hva du antar.
+DEL 2 — Bli kjent med koden gjennom praktisk eksperimentering.
 
-Avslutt alltid med denne listen, ordrett, uten å utføre punktene selv:
+Oppgave 1: bruk applikasjonen i grensesnittet og observer hva som faktisk går
+over nettverket, inkludert minst ett forsøk som blir avvist. Velg deretter én
+skriveoperasjon å følge gjennom koden, fra grensesnittet til databasen.
 
-  Nå gjør du dette selv -- ikke spør meg om noe av det:
-  1. Åpne appen i nettleseren, utfør hovedhandlingen, og noter path,
-     request-body og statuskode fra nettverksfanen.
-  2. Åpne to av filene jeg viste til og sjekk at linjenumrene stemmer.
-  3. Skriv av én linje kode ordrett fra filen der reglene håndheves.
-  4. Velg én skriveoperasjon du vil følge i dybden, og skriv ned hvorfor.
+Oppgave 2: finn ut hvordan arkitekturmønsteret du navnga i intro-en faktisk
+utspiller seg i denne koden -- hva hvert lag har ansvar for, og hvor grensene
+mellom dem går.
+
+Regler:
+- Ikke oppgi fil:linje. Å finne fram er halve jobben.
+- Ikke svar på oppgavene, ikke antyd svar, ikke tilby å gjøre dem.
+- Formuler oppgavene konkret nok til at de har svar som finnes i koden, men som
+  ikke står i intro-en din.
+
+Ingen oppsummering til slutt. Ingen kodeblokker.

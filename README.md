@@ -6,65 +6,78 @@ forstå koden vi er med på å lage, godt nok til å stå inne for den samtidig 
 vi bygger teknisk forståelse.
 
 I løpet av workshopen skal dere legge til én feature i en kodebase dere ikke har
-sett før: gjentakende booking, altså at en bruker kan opprette en serie
-bookinger i stedet for én. Hva som kreves av featuren står i steg 2.
+sett før. Applikasjonen er en liten bookingtjeneste for møterom, og featuren
+dere skal legge til er gjentakende booking, altså at en bruker kan opprette en
+serie bookinger i stedet for én. Hva som kreves av featuren står i steg 2.
 
 I workshopen er denne jobben delt i fem steg som til slutt gjør at denne nye
-featuren blir lagt til. Første steg går ut på å bli kjent med kodebasen, i andre
-steg skriver vi en plan for arbeidet, i tredje og fjerde steg implementerer og
-tester vi, og i det siste steget forbereder vi oss på å lage en PR. Hvert steg
-introduserer en teknikk hvor man baserer seg på Claude Code, men selv er
-deltakende i utviklingsprosessen.
+featuren blir lagt til:
 
-To kjøreregler gjelder hele veien. Spørsmål om språket og rammeverket stiller
-dere med `/btw`, en innebygget kommando i Claude Code for et sidespørsmål. Den
-avbryter ikke det agenten holder på med, og kan ikke lese filer. Og ingen
-påstand om koden teller før noen har vist fil:linje.
+1. **Bli kjent med kodebasen.**
+2. **Planlegg** arbeidet.
+3. **Utfør** -- implementer featuren.
+4. **Test** -- skriv testene.
+5. **Quiz før PR** -- forbered dere på å levere.
+
+Hvert steg introduserer en teknikk hvor man baserer seg på Claude Code, men selv
+er deltakende i utviklingsprosessen.
+
+> 💡 **Tips:** Spørsmål om språket og rammeverket stiller dere med `/btw`, en
+> innebygget kommando i Claude Code for et sidespørsmål. Den avbryter ikke det
+> agenten holder på med, og kan ikke lese filer.
 
 ---
 
 ## Steg 1: Bli kjent med kodebasen
 
-Dette steget går ut på å orientere seg i kodebasen. Dere skal skaffe dere et
-kart over hva som finnes i den, og så lese koden selv i stedet for å nøye dere
-med et sammendrag. Verktøyet er `/orienter`, en kommando som ligger i dette
-repoet.
-
-### Fremgangsmåte
-
-1. **Få appen til å kjøre.** `npm install`, deretter `npm run dev`. Åpne
-   frontend-adressen i nettleseren og sjekk at dere ser data.
-2. **Kjør orienteringen.** Start Claude Code i rotmappa av repoet og skriv
-   `/orienter`. Les hele svaret før dere gjør noe annet.
-3. **Legg merke til hva som er antatt.** Svaret skiller mellom det Claude har
-   lest i koden og det den antar. Antakelsene er kandidater til å være feil.
-4. **Gjør de fire oppgavene svaret avsluttes med.** Selv, i editoren og i
-   nettleseren.
+Dette steget går ut på å orientere seg i kodebasen. Dere får en kort
+introduksjon til hva applikasjonen gjør, men der stopper hjelpen -- resten
+finner dere selv. Det er lesingen deres, ikke sammendraget, som sitter igjen
+etterpå. Verktøyet er `/orienter`, en kommando som ligger i dette repoet. Vil
+dere lage slike kommandoer selv, står det forklart i
+[dokumentasjonen om skills](https://code.claude.com/docs/en/skills).
 
 ### Om `/orienter`
 
-Kommandoen ber Claude svare på seks ting: hva applikasjonen gjør, hvilke lag en
-request går gjennom, hvilke entiteter og endepunkter som finnes, hvor
-skrivereglene bor, og hvordan appen og testene kjøres. Svaret er begrenset til
-300 ord -- et kart skal være kort nok til å leses i ett jafs.
+Svaret har to deler. Først en intro på maks 150 ord: hva applikasjonen gjør,
+hva som er kjernen i den, hvilket arkitekturmønster koden følger, og hva dere
+trenger for å kjøre den -- i prosa, uten filnavn og linjenumre. Deretter
+hoveddelen, som er oppgavene dere skal gjøre selv.
 
 > ℹ️ **Merk:** Kommandoen er read-only. Ikke be den om endringer, og ikke skriv
 > `/orienter og fiks X`.
 
-### De fire oppgavene til slutt
+### Fremgangsmåte
 
-De er obligatoriske: kjøre appen i nettleseren og notere path, request-body og
-statuskode; åpne to av filene og sjekke at linjenumrene stemmer; skrive av én
-linje kode ordrett fra filen der reglene håndheves; og velge én skriveoperasjon
-dere vil følge i dybden.
+1. **Få appen til å kjøre.**
 
-> ❗ **Viktig:** Ikke be Claude gjøre dem for dere. Poenget er at dere selv
-> verifiserer kartet mot terrenget -- det er slik dere oppdager når en modell
-> tar feil.
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-Dere er ferdige når de fire oppgavene er gjort. Ingenting skal leveres. Det dere
-sitter igjen med er kjennskap til kodebasen, og det er grunnlaget steg 2 hviler
-på: en plan bygget på gjetninger blir en dårlig plan.
+   Åpne frontend-adressen i nettleseren og sjekk at dere ser data.
+
+2. **Kjør orienteringen.** Start Claude Code i rotmappa av repoet:
+
+   ```bash
+   cd roombooking   # rotmappa av repoet dere klonet
+   claude
+   ```
+
+   Skriv så `/orienter` i Claude Code, og les hele svaret før dere gjør noe
+   annet.
+
+3. **Gjennomfør oppgavene `/orienter` gir dere.** Selv, i editoren og i
+   nettleseren.
+
+> ❗ **Viktig:** Ikke be Claude gjøre oppgavene for dere. Poenget er at dere
+> selv finner fram i koden -- svarene står ikke i intro-en, og å lete dem fram
+> er halve læringen.
+
+Dere er ferdige når oppgavene er gjort. Ingenting skal leveres. Det dere sitter
+igjen med er kjennskap til kodebasen, og det er grunnlaget steg 2 hviler på: en
+plan bygget på gjetninger blir en dårlig plan.
 
 ---
 
@@ -107,8 +120,8 @@ er uavhengigheten sikret, og da tar dere diskusjonen med den også.
 ### Hva planen skal inneholde
 
 Planen har formatkrav, ikke innholdskrav. Den er en liste over beslutninger dere
-mener må tas, og for hver: hva dere velger, og hva valget bygger på -- fil:linje
-hvis dere har lest det i koden, "antatt" hvis ikke.
+mener må tas, og for hver: hva dere velger, og hva valget bygger på -- det dere
+har lest i koden, eller "antatt" hvis dere ikke har sjekket.
 
 Dere får ingen liste over hva som må besvares. Å finne ut hvilke beslutninger
 som hører hjemme er oppgaven.
@@ -175,7 +188,7 @@ Det er et helt annet sted å komme til enn enter-enter-enter.
    Vi jobber i biter. For hver bit:
    - Jeg avgrenser. Foreslå ikke en avgrensning selv.
    - Før du skriver noe: hvilke valg tvinger biten fram som planen ikke avgjør?
-     Still dem som spørsmål med fil:linje. Ikke anbefal noe.
+     Still dem som spørsmål. Ikke anbefal noe.
    - Legg TODO(human) der jeg lærer mest om denne kodebasen og valgene i den --
      altså i beregning, vilkår og regler. Ikke i boilerplate, mapping eller
      syntaks. Én per bit.
