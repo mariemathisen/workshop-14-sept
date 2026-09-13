@@ -372,8 +372,22 @@ ord, er dere ikke klare til å sende den.
 
 1. **Kjør `/quiz`** og svar muntlig. Å slå opp i koden underveis er helt greit,
    det er sånn man jobber.
-2. **Sett output style tilbake.** Endre `.claude/settings.local.json` tilbake
-   til `"Explanatory"`.
+
+   > <div style="height:1px"></div>
+   >
+   > ##### Hvorfor inputfeltet er tomt
+   >
+   > Claude Code foreslår vanligvis din neste melding i grått i inputfeltet, og
+   > Tab fyller den inn. Under quizen ville det gitt dere svaret før dere rakk
+   > å tenke. Derfor står `promptSuggestionEnabled: false` i
+   > `.claude/settings.local.json` i dette repoet. Den gjelder hele økta, ikke
+   > bare dette steget, så den beskytter også planen dere skriver selv i steg 2.
+   >
+   > <div style="height:1px"></div>
+
+2. **Sett output style tilbake.** Sett `outputStyle` i
+   `.claude/settings.local.json` tilbake til `"Explanatory"`. La de andre
+   nøklene i fila stå.
 
    > <div style="height:1px"></div>
    >
