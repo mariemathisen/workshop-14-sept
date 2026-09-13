@@ -109,83 +109,115 @@ plan bygget på gjetninger blir en dårlig plan.
 ## Steg 2: Planlegg
 
 Her bestemmer dere hvordan featuren skal løses. Steget finnes fordi de tekniske
-valgene skal tas bevisst, av dere, før noe som helst blir skrevet. Kravene til
+valgene skal tas bevisst av dere, før noe som helst blir skrevet. Kravene til
 featuren står i
 [docs/workshop/feature-gjentakende-booking.md](docs/workshop/feature-gjentakende-booking.md).
 
 ### Fremgangsmåte
 
-1. **Skriv gruppas egen plan utenfor repoet.** På papir, i Notater på Mac-en,
-   eller et hvilket som helst dokument som ikke ligger i kodebasen.
+#### 1. Skriv gruppas egen plan utenfor repoet
 
-   Planen har formatkrav, ikke innholdskrav: den er en liste over beslutninger
-   dere mener må tas, og for hver -- hva dere velger, og hva valget bygger på,
-   enten det dere har lest i koden eller "antatt" hvis dere ikke har sjekket.
-   Dere får ingen liste over hva som må besvares; å finne ut hvilke
-   beslutninger som hører hjemme er oppgaven.
+På papir, i Notater på Mac-en, eller et hvilket som helst dokument som ikke
+ligger i kodebasen.
 
-2. **Gå inn i plan mode.** Trykk Shift+Tab til statuslinja nederst viser
-   `⏸ plan mode on`, eller skriv `/plan`. Begge gjør det samme.
+Planen skal inneholde fremgangsmåten deres for å implementere featuren. Det vil
+si hva som må legges til hvor, i tillegg til valg dere tar, tekniske eller
+rettet mot domenet. Hold punktene korte, og nummerer dem.
 
-   Plan mode er en modus i Claude Code der agenten får lese filer og foreslå,
-   men ikke endre noe på disk. Ut igjen kommer dere med Shift+Tab -- ikke ved å
-   godkjenne planen, for det slår av modusen *og* setter agenten i gang med å
-   implementere. Hva modusen gjør, og hvilke andre moduser som finnes, står i
-   [dokumentasjonen om permission modes](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode).
+Avslutt med hvilket valg dere er minst sikre på.
 
-   > ⚠️ **Pass på:** Sjekk at statuslinja faktisk viser `⏸ plan mode on` før
-   > dere går videre. Gjør den ikke det, står dere i vanlig modus, og agenten
-   > kan begynne å skrive filer. Spør den underveis om planen skal settes ut i
-   > livet, svarer dere nei -- featuren skrives i steg 3.
+#### 2. Kjør `/planlegg`
 
-3. **Kjør `/planlegg`.** Kommandoen ligger i dette repoet. Den leser kravfila
-   for featuren og lager agentens **egen** implementasjonsplan: en liste over
-   beslutninger, der hver har hva agenten velger og hva valget bygger på, pluss
-   tre korte avsnitt til slutt -- alternativer den forkastet, hva den antar, og
-   hva den ville gjort først. Maks 250 ord. Den spør dere ikke om noe underveis,
-   og den har ikke sett planen deres.
+Kommandoen leser kravfila for featuren og lager agentens egen plan for hvordan
+den skal implementeres, uten å spørre dere om noe og uten å ha sett planen
+deres. Den planen er det dere etterpå skal sammenlikne med deres egen.
 
-   Det er ikke tungvint med vilje: en agent som får en ferdig plan å forholde
-   seg til, forankrer seg i den og bekrefter den i stedet for å tenke selv.
+> ##### Hva er `/planlegg`?
+>
+> I likhet med `/orienter` er det bare en skill jeg har laget på forhånd,
+> lagret i `.claude/skills/planlegg/SKILL.md`. Skriver dere kommandoen, får
+> agenten den teksten som instruks.
+>
+> Dere kunne skrevet den samme beskjeden selv, enten som en prompt eller som en
+> egen skill. Poenget her er at alle gruppene får nøyaktig den samme.
 
-   > ℹ️ **Merk:** `/plan` og `/planlegg` er to forskjellige ting, selv om
-   > navnene ligner. `/plan` er innebygget i Claude Code og skrur på en modus --
-   > den bestemmer hva agenten har *lov* til. `/planlegg` ligger i dette repoet
-   > og er en oppgave -- den bestemmer hva agenten skal *gjøre*. Dere trenger
-   > begge: modusen hindrer at det blir skrevet kode, kommandoen sier hva som
-   > skal planlegges.
+> ##### Hva `/planlegg` produserer
+>
+> Det samme dere selv skrev i punkt 1: fremgangsmåten -- hva som må legges til
+> hvor -- og valgene som tas underveis, med hva hvert valg bygger på, lest i
+> koden eller antatt. Nummerert, korte punkter, maks sju.
+>
+> Til slutt sier den hvilket valg den er minst sikker på. Start diskusjonen der.
+>
+> Formatene er like med vilje. To lister som ser like ut kan legges ved siden av
+> hverandre og sammenlignes punkt for punkt.
 
-4. **Sammenlign planene.** Først dere imellom, så sammen med agenten. Dette er
-   den viktigste delen, og den skal ha mest tid.
+> ##### Plan mode -- alternativet vi ikke valgte
+>
+> Claude Code har en modus der agenten får lese filer og foreslå, men er
+> avskåret fra å endre noe på disk. Den slås på med Shift+Tab, eller ved å
+> skrive `/plan`.
+>
+> Dette steget kunne vært gjort i plan mode i stedet for med `/planlegg` --
+> samme jobb, men med prompten skrevet for hånd hver gang. Vi lar modusen stå
+> av i dag, av tre grunner:
+>
+> - `/planlegg` sier allerede fra at den ikke skal skrive kode, så sperren har
+>   lite å gjøre her.
+> - Steget avsluttes med at dere ber agenten skrive planen til fil. Det ville
+>   plan mode blokkert.
+> - Modusen spør underveis om planen skal settes ut i livet, og et ja der
+>   starter implementasjonen. Det er den vanligste måten et planleggingssteg
+>   sporer av på.
+>
+> Det er altså dere som holder igjen i dag, ikke verktøyet. Modusen er verdt å
+> kjenne til likevel -- den er nyttig i vanlig arbeid, og står forklart i
+> [dokumentasjonen om permission modes](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode).
 
-   To planer som spriker er hele læringen i steget. Snakk først sammen: hvor er
-   de uenige, og hvilken uenighet betyr egentlig noe? Ta så diskusjonen med
-   agenten -- «her er det vi kom fram til» -- og iterer videre.
+> ##### ⚠️ Pass på
+>
+> Ingenting implementeres i dette steget. Agenten kommer til å tilby det, og
+> noen av dere kommer til å ha lyst. Svar nei -- featuren skrives i steg 3.
 
-   > 💡 **Tips:** En agent som blir spurt «hva synes du om vårt forslag?» har
-   > en sterk tendens til å si seg enig. Spør heller hva som taler *imot*
-   > valget deres, eller hva som går galt hvis dere tar feil. Da får dere en
-   > motstemme i stedet for et ekko.
+#### 3. Sammenlign planene
 
-5. **Lag grenen deres.** Gå ut av plan mode med Shift+Tab -- ikke ved å
-   godkjenne planen, det starter implementasjonen. Så
-   `git checkout -b <gruppenavn>`.
+Først dere imellom, så sammen med agenten. Dette er den viktigste delen, og den
+skal ha mest tid.
 
-6. **Lås planen.** Be agenten skrive planen dere landet på til
-   `plans/ferdig-plan.md`, og les gjennom fila. Det er deres plan som skal stå
-   der -- ikke agentens, og ikke den ene eller den andre avskrevet, men det dere
-   faktisk skal gjøre. Har dere endret mening om noe underveis, skriv kort
-   hvorfor.
+> ##### Slik gjør dere det
+>
+> To planer som spriker er hele læringen i steget. Snakk først sammen: hvor er
+> de uenige, og hvilken uenighet betyr egentlig noe?
+>
+> Ta så diskusjonen med agenten -- «her er det vi kom fram til» -- og iterer
+> videre.
 
-7. **Plenum.**
+> ##### 💡 Tips
+>
+> En agent som blir spurt «hva synes du om vårt forslag?» har en sterk tendens
+> til å si seg enig. Spør heller hva som taler *imot* valget deres, eller hva
+> som går galt hvis dere tar feil. Da får dere en motstemme i stedet for et
+> ekko.
 
-Dere er ferdige når dere kan si grunnen til hver beslutning, ikke når agenten
-slutter å foreslå forbedringer.
+#### 4. Lag grenen deres
 
-> ℹ️ **Merk:** Plan mode lagrer sitt eget notat under `~/.claude/plans/`. Det
-> er Claude Code som gjør det, ikke kommandoen, og notatet blir aldri tracket
-> av git -- ikke fordi det er ignorert, men fordi git bare ser filer som ligger
-> inne i repoet.
+```bash
+git checkout -b <gruppenavn>
+```
+
+#### 5. Lås planen
+
+Be agenten skrive planen dere landet på til `plans/ferdig-plan.md`, og les
+gjennom fila. Det er deres plan som skal stå der -- ikke agentens, og ikke den
+ene eller den andre avskrevet, men det dere faktisk skal gjøre. Har dere endret
+mening om noe underveis, skriv kort hvorfor.
+
+#### 6. Plenum
+
+### Når er dere ferdige?
+
+Når dere kan si grunnen til hver beslutning -- ikke når agenten slutter å
+foreslå forbedringer.
 
 ---
 

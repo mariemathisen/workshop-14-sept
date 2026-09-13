@@ -1,12 +1,14 @@
 ---
 name: planlegg
-description: Lag en uavhengig implementasjonsplan for en feature. Read-only, ingen kode.
+description: Lag en uavhengig plan for en feature: fremgangsmåte og valg. Read-only, ingen kode.
 disable-model-invocation: true
 ---
 
 Les docs/workshop/feature-gjentakende-booking.md. Det er kravene.
 
-Lag din egen implementasjonsplan for denne featuren i denne kodebasen.
+Lag din egen plan for hvordan featuren skal implementeres i denne kodebasen.
+Planen skal inneholde fremgangsmåten din -- hva som må legges til hvor -- og
+valgene du tar underveis, tekniske så vel som domeneretta.
 
 Regler:
 - Ikke skriv kode, ikke endre filer, ikke opprett migrasjoner eller tester.
@@ -15,16 +17,14 @@ Regler:
   det.
 - Planen skal være din egen og uavhengig.
 
-Format -- planen er en liste over beslutninger du mener må tas. Ingen fast
-lengde på lista; du bestemmer selv hvilke beslutninger som hører hjemme.
-For hver beslutning:
-  - Beslutningen, i én setning.
-  - Hva du velger.
-  - Hva valget bygger på: fil:linje, eller ordet "antatt".
+Format -- nummerert liste, maks sju punkter. For hvert punkt:
+  - Hva som skal gjøres, og hvor.
+  - Valget punktet uttrykker, hvis det finnes et, og hva valget bygger på: hva
+    du har lest i koden, eller ordet "antatt".
 
-Avslutt med tre korte avsnitt:
-  - Alternativer jeg forkastet, og hvorfor.
-  - Hva jeg ikke har lest, og derfor antar.
-  - Rekkefølge: hva jeg ville gjort først.
+Hold punktene korte. Noen linjer hver, ikke et avsnitt. Ikke utred alternativer
+du forkastet.
 
-Maks 250 ord totalt. Ingen kodeblokker. Ingen oppsummering til slutt.
+Avslutt med én setning om hvilket valg du er minst sikker på.
+
+Ingen kodeblokker. Ingen oppsummering til slutt.
