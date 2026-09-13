@@ -28,6 +28,31 @@ er deltakende i utviklingsprosessen.
 
 ---
 
+## Før vi starter
+
+Sjekk versjonene dine i god tid før workshopen, ikke mens den pågår. Kjør disse
+fire i et terminalvindu -- hvor som helst, du trenger ikke å ha klonet repoet
+ennå:
+
+```bash
+node --version      # v22.12.0 eller nyere
+npm --version       # 10 eller nyere -- følger med Node
+git --version       # hvilken som helst nyere versjon
+claude --version    # nyeste -- oppdater med `claude update`
+```
+
+Node er den som faktisk stopper deg: er den for gammel, starter verken backend
+eller frontend. Hvorfor akkurat 22.12 står under [Krav](#krav).
+
+> ⚠️ **Pass på:** `claude --version` må svare med et versjonsnummer. Gjør den
+> ikke det, er ikke Claude Code installert -- se
+> [installasjonsveiledningen](https://code.claude.com/docs/en/quickstart).
+> Start den så én gang med `claude` og sjekk at du er logget inn, så du ikke
+> bruker workshoptid på innlogging. `claude doctor` sier fra om installasjonen
+> er sunn.
+
+---
+
 ## Steg 1: Bli kjent med kodebasen
 
 Dette steget går ut på å orientere seg i kodebasen. Dere får en kort
