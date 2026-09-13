@@ -17,14 +17,12 @@ Regler:
   det.
 - Planen skal være din egen og uavhengig.
 
-Format -- nummerert liste, maks sju punkter. For hvert punkt:
+Format -- nummerert liste, fem til sju punkter. For hvert punkt:
   - Hva som skal gjøres, og hvor.
   - Valget punktet uttrykker, hvis det finnes et, og hva valget bygger på: hva
     du har lest i koden, eller ordet "antatt".
 
 Hold punktene korte. Noen linjer hver, ikke et avsnitt. Ikke utred alternativer
 du forkastet.
-
-Avslutt med én setning om hvilket valg du er minst sikker på.
 
 Ingen kodeblokker. Ingen oppsummering til slutt.

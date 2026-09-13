@@ -122,9 +122,10 @@ ligger i kodebasen.
 
 Planen skal inneholde fremgangsmåten deres for å implementere featuren. Det vil
 si hva som må legges til hvor, i tillegg til valg dere tar, tekniske eller
-rettet mot domenet. Hold punktene korte, og nummerer dem.
+rettet mot domenet. For hvert valg: skriv hva det bygger på -- det dere har
+lest i koden, eller "antatt" hvis dere ikke har sjekket.
 
-Avslutt med hvilket valg dere er minst sikre på.
+Fem til sju punkter. Hold dem korte, og nummerer dem.
 
 #### 2. Kjør `/planlegg`
 
@@ -145,9 +146,7 @@ deres. Den planen er det dere etterpå skal sammenlikne med deres egen.
 >
 > Det samme dere selv skrev i punkt 1: fremgangsmåten -- hva som må legges til
 > hvor -- og valgene som tas underveis, med hva hvert valg bygger på, lest i
-> koden eller antatt. Nummerert, korte punkter, maks sju.
->
-> Til slutt sier den hvilket valg den er minst sikker på. Start diskusjonen der.
+> koden eller antatt. Fem til sju korte, nummererte punkter.
 >
 > Formatene er like med vilje. To lister som ser like ut kan legges ved siden av
 > hverandre og sammenlignes punkt for punkt.
@@ -199,16 +198,15 @@ gjennom fila.
 ## Steg 3: Utfør
 
 Når dere har landet på en plan, er neste steg å implementere featuren. Agenten
-kommer til å skrive mesteparten av koden, og det er meningen -- poenget er ikke
-hvem som taster, men at valgene underveis er deres. Målet er ikke at dere skal
-ha skrevet featuren for hånd, men at dere etterpå kan forklare hva som ble lagt
-til og hvorfor det ser ut som det gjør.
-Det er et helt annet sted å komme til enn enter-enter-enter.
+kommer til å skrive mesteparten av koden, og det er meningen, men valgene
+underveis er deres. Målet er ikke at dere skal ha skrevet featuren for hånd, men
+at dere etterpå kan forklare hva som ble lagt til og hvorfor det ser ut som det
+gjør.
 
 ### Fremgangsmåte
 
-1. **Bytt output style.** Åpne `.claude/settings.local.json`. Slik ser den ut
-   nå:
+1. **Bytt output style til Learning.** Åpne `.claude/settings.local.json`. Slik
+   ser den ut nå:
 
    ```json
    {
@@ -224,60 +222,71 @@ Det er et helt annet sted å komme til enn enter-enter-enter.
    }
    ```
 
-   Det er bare dette ene feltet som endres. Den eneste tingen som kan gå galt
-   her, er en skrivefeil i JSON-en.
+   > ##### Hva Learning er
+   >
+   > En av output-stilene som følger med Claude Code. En output style endrer
+   > hvordan agenten svarer, ikke hva den kan.
+   >
+   > `Learning` forklarer valgene sine underveis, og lar med vilje ett hull stå
+   > igjen i koden -- markert `TODO(human)` -- som dere fyller ut selv. Fram til
+   > nå har dere brukt `Explanatory`, som forklarer like mye, men skriver alt
+   > selv.
 
-2. **Start Claude Code på nytt** og kjør `claude -c`, så beholder dere
-   konteksten fra steg 1 og 2.
+2. **Sjekk at stilen slår inn.** Send en melding og se om svaret har endret
+   form. Har det ikke det, start Claude Code på nytt med `claude -c` -- da
+   leses innstillingen på nytt, og dere beholder konteksten fra steg 1 og 2.
 
 3. **Lim inn prompten:**
 
    ```
    Planen min ligger i plans/ferdig-plan.md og skal implementeres nå.
 
-   Vi jobber i biter. For hver bit:
-   - Jeg avgrenser. Foreslå ikke en avgrensning selv.
-   - Før du skriver noe: hvilke valg tvinger biten fram som planen ikke avgjør?
-     Still dem som spørsmål. Ikke anbefal noe.
+   Vi jobber oss gjennom planen del for del. Jeg bestemmer hvor vi starter, og
+   hva neste del blir når vi er ferdige med den forrige. Foreslå ikke en
+   oppdeling selv.
+
+   For hver del:
+   - Før du skriver noe: hvilke valg tvinger delen fram som planen ikke avgjør?
+     Still det som spørsmål. Ikke anbefal noe.
    - Legg TODO(human) der jeg lærer mest om denne kodebasen og valgene i den --
      altså i beregning, vilkår og regler. Ikke i boilerplate, mapping eller
-     syntaks. Én per bit.
+     syntaks. Én per del.
    - Resten skriver du, etter eksisterende mønster i koden.
-   - Når biten er ferdig: to linjer om hva som ble endret og hvilket valg det
+   - Når delen er ferdig: to linjer om hva som ble endret og hvilket valg det
      uttrykker. Ikke skriv tester underveis.
 
-   Når alle bitene er ferdige: spør meg hvilke tilfeller som skal testes, og
+   Når alle delene er ferdige: spør meg hvilke tilfeller som skal testes, og
    skriv testene for det jeg svarer. Ikke foreslå tilfellene selv.
    ```
 
-4. **Jobb bit for bit.** Dere avgrenser hver bit, dere svarer på spørsmålene
-   agenten stiller før den skriver, og dere fyller ut `TODO(human)` før dere går
-   videre til neste.
+4. **Jobb del for del.** Dere bestemmer hvor neste del starter og slutter, dere
+   svarer på spørsmålene agenten stiller før den skriver, og dere fyller ut
+   `TODO(human)` før dere går videre.
 
-5. **Svar på hva som skal testes.** Når alle bitene er ferdige spør agenten
+   > ##### `TODO(human)` er deres del
+   >
+   > Agenten skriver rammen rundt og lar ett hull stå tomt -- i en beregning,
+   > et vilkår eller en regel, altså der dere må ha forstått kodebasen for å
+   > skrive noe riktig. Den går ikke videre før hullet er fylt ut.
+   >
+   > Den legger ved en «Guidance»-del når den overleverer en TODO. Les den som
+   > momenter å vurdere, ikke som en oppskrift.
+
+   > ##### 💡 Tips
+   >
+   > Står dere fast, finnes det to veier som ikke gir svaret gratis: `/btw` for
+   > språk og syntaks -- den kan ikke lese koden deres -- eller be agenten
+   > forklare koden som allerede står der, ikke foreslå hva som skal stå i
+   > hullet.
+
+5. **Svar på hva som skal testes.** Når alle delene er ferdige spør agenten
    hvilke tilfeller testene skal dekke. Tilfellene er deres, testkoden er
    agentens.
 
-> ℹ️ **Merk:** Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er
+> ℹ️ **Merk:** Hvordan jobben deles opp, bestemmer dere selv. Det er
 > en del av utviklerjobben, og det finnes ingen fasit.
 
-### `TODO(human)` er deres del
-
-Agenten skriver rammen rundt og lar ett hull stå tomt -- i en beregning, et
-vilkår eller en regel, altså der dere må ha forstått kodebasen for å skrive noe
-riktig. Den stopper og venter: den går ikke videre av seg selv før hullet er
-fylt ut.
-
-> 💡 **Tips:** Står dere fast, finnes det to veier som ikke gir dere svaret
-> gratis. `/btw` for språk og syntaks -- den kan ikke lese koden deres, og kan
-> derfor ikke skrive hullet for dere. Eller be agenten forklare koden som
-> allerede står der, ikke foreslå hva som skal stå i hullet.
-
-Agenten legger selv ved en «Guidance»-del når den overleverer en TODO; les den
-som momenter å vurdere, ikke som en oppskrift.
-
-Steget slutter når alle TODO-ene er fylt ut og testene er skrevet. Ta med
-`git diff` og testfila videre til steg 4.
+Steget slutter når alle TODO-ene er fylt ut og testene er skrevet.
 
 ---
 
