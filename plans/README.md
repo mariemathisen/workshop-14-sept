@@ -1,10 +1,13 @@
 # Planer
 
+Denne fila er bare en forklaring på mappa. Planen deres skal i en egen fil.
+
 Her låser hver gruppe sin endelige plan på slutten av steg 2, som
 
-    plans/<gruppenavn>.md
+    plans/ferdig-plan-<gruppenavn>.md
 
-Én fil per gruppe. Velg et navn selv -- det skal bare være til å kjenne igjen.
+Én fil per gruppe. Gruppenavnet velger dere selv -- det skal bare være til å
+kjenne igjen, og det er det samme som grenen deres heter.
 
 Planen er den dere har landet på etter å ha sammenlignet deres egen plan med
 agentens -- ikke den ene eller den andre avskrevet, men det dere faktisk skal

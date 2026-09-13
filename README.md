@@ -91,8 +91,8 @@ featuren står i
    godkjenne planen, det starter implementasjonen. Så
    `git checkout -b <gruppenavn>`.
 5. **Lås planen.** Be agenten skrive planen dere landet på til
-   `plans/<gruppenavn>.md`, og les gjennom fila. Det er deres plan som skal stå
-   der, ikke agentens.
+   `plans/ferdig-plan-<gruppenavn>.md`, og les gjennom fila. Det er deres plan
+   som skal stå der, ikke agentens.
 6. **Plenum.**
 
 ### Hvorfor deres egen plan kommer først
@@ -168,7 +168,7 @@ Det er et helt annet sted å komme til enn enter-enter-enter.
 3. **Lim inn prompten**, med deres eget filnavn i første linje:
 
    ```
-   Planen min ligger i plans/<gruppenavn>.md og skal implementeres nå.
+   Planen min ligger i plans/ferdig-plan-<gruppenavn>.md og skal implementeres nå.
 
    Vi jobber i biter. For hver bit:
    - Jeg avgrenser. Foreslå ikke en avgrensning selv.
