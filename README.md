@@ -113,45 +113,6 @@ valgene skal tas bevisst, av dere, før noe som helst blir skrevet. Kravene til
 featuren står i
 [docs/workshop/feature-gjentakende-booking.md](docs/workshop/feature-gjentakende-booking.md).
 
-> ⚠️ **Pass på:** Ingenting implementeres her. Når Claude Code spør om planen
-> skal settes ut i livet, svarer dere nei -- featuren skrives i steg 3.
-
-### Plan mode må stå på
-
-Plan mode er en modus i Claude Code der agenten får lese filer og foreslå, men
-ikke endre noe på disk. Den er laget for akkurat denne situasjonen: dere vil ha
-et gjennomtenkt forslag å diskutere, ikke kode. Derfor skal den stå på *før*
-dere kjører kommandoen.
-
-Det er to måter inn, og de gjør det samme:
-
-- **Shift+Tab** -- trykk gjentatte ganger til statuslinja nederst viser
-  `⏸ plan mode on`.
-- **`/plan`** -- skriv det i prompten.
-
-Ut igjen kommer dere med Shift+Tab. Ikke ved å godkjenne planen: det slår av
-plan mode *og* setter agenten i gang med å implementere.
-
-> ⚠️ **Pass på:** Sjekk at statuslinja faktisk viser `⏸ plan mode on` før dere
-> går videre. Gjør den ikke det, står dere i vanlig modus, og agenten kan
-> begynne å skrive filer.
-
-Hva modusen gjør og hvilke andre moduser som finnes, står i
-[dokumentasjonen om permission modes](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode).
-
-### Om `/planlegg`
-
-Kommandoen leser kravfila og lager agentens **egen** implementasjonsplan. Den
-spør dere ikke om noe underveis -- er noe uavklart, tar den et valg og skriver
-at den tok det. Svaret er en liste over beslutninger, der hver har hva agenten
-velger og hva valget bygger på, og tre korte avsnitt til slutt: alternativer den
-forkastet, hva den antar, og hva den ville gjort først. Maks 250 ord.
-
-Merk at den er en annen type kommando enn `/orienter`. Der ga svaret dere
-oppgaver å løse; her får dere et ferdig svar, og oppgaven er å være uenig med
-det. Hva dere skal gjøre med planen står derfor i fremgangsmåten under, ikke i
-kommandoens svar.
-
 ### Fremgangsmåte
 
 1. **Skriv gruppas egen plan utenfor repoet.** På papir, i Notater på Mac-en,
@@ -163,12 +124,36 @@ kommandoens svar.
    Dere får ingen liste over hva som må besvares; å finne ut hvilke
    beslutninger som hører hjemme er oppgaven.
 
-2. **Gå inn i plan mode.** Shift+Tab til statuslinja viser `⏸ plan mode on`,
-   eller skriv `/plan`. Ikke hopp over dette.
+2. **Gå inn i plan mode.** Trykk Shift+Tab til statuslinja nederst viser
+   `⏸ plan mode on`, eller skriv `/plan`. Begge gjør det samme.
 
-3. **Kjør `/planlegg`.** Agenten lager sin egen plan uten å ha sett deres. Det
-   er ikke tungvint med vilje: en agent som får en ferdig plan å forholde seg
-   til, forankrer seg i den og bekrefter den i stedet for å tenke selv.
+   Plan mode er en modus i Claude Code der agenten får lese filer og foreslå,
+   men ikke endre noe på disk. Ut igjen kommer dere med Shift+Tab -- ikke ved å
+   godkjenne planen, for det slår av modusen *og* setter agenten i gang med å
+   implementere. Hva modusen gjør, og hvilke andre moduser som finnes, står i
+   [dokumentasjonen om permission modes](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode).
+
+   > ⚠️ **Pass på:** Sjekk at statuslinja faktisk viser `⏸ plan mode on` før
+   > dere går videre. Gjør den ikke det, står dere i vanlig modus, og agenten
+   > kan begynne å skrive filer. Spør den underveis om planen skal settes ut i
+   > livet, svarer dere nei -- featuren skrives i steg 3.
+
+3. **Kjør `/planlegg`.** Kommandoen ligger i dette repoet. Den leser kravfila
+   for featuren og lager agentens **egen** implementasjonsplan: en liste over
+   beslutninger, der hver har hva agenten velger og hva valget bygger på, pluss
+   tre korte avsnitt til slutt -- alternativer den forkastet, hva den antar, og
+   hva den ville gjort først. Maks 250 ord. Den spør dere ikke om noe underveis,
+   og den har ikke sett planen deres.
+
+   Det er ikke tungvint med vilje: en agent som får en ferdig plan å forholde
+   seg til, forankrer seg i den og bekrefter den i stedet for å tenke selv.
+
+   > ℹ️ **Merk:** `/plan` og `/planlegg` er to forskjellige ting, selv om
+   > navnene ligner. `/plan` er innebygget i Claude Code og skrur på en modus --
+   > den bestemmer hva agenten har *lov* til. `/planlegg` ligger i dette repoet
+   > og er en oppgave -- den bestemmer hva agenten skal *gjøre*. Dere trenger
+   > begge: modusen hindrer at det blir skrevet kode, kommandoen sier hva som
+   > skal planlegges.
 
 4. **Sammenlign planene.** Først dere imellom, så sammen med agenten. Dette er
    den viktigste delen, og den skal ha mest tid.
