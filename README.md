@@ -116,51 +116,83 @@ featuren står i
 > ⚠️ **Pass på:** Ingenting implementeres her. Når Claude Code spør om planen
 > skal settes ut i livet, svarer dere nei -- featuren skrives i steg 3.
 
+### Plan mode må stå på
+
+Plan mode er en modus i Claude Code der agenten får lese filer og foreslå, men
+ikke endre noe på disk. Den er laget for akkurat denne situasjonen: dere vil ha
+et gjennomtenkt forslag å diskutere, ikke kode. Derfor skal den stå på *før*
+dere kjører kommandoen.
+
+Det er to måter inn, og de gjør det samme:
+
+- **Shift+Tab** -- trykk gjentatte ganger til statuslinja nederst viser
+  `⏸ plan mode on`.
+- **`/plan`** -- skriv det i prompten.
+
+Ut igjen kommer dere med Shift+Tab. Ikke ved å godkjenne planen: det slår av
+plan mode *og* setter agenten i gang med å implementere.
+
+> ⚠️ **Pass på:** Sjekk at statuslinja faktisk viser `⏸ plan mode on` før dere
+> går videre. Gjør den ikke det, står dere i vanlig modus, og agenten kan
+> begynne å skrive filer.
+
+Hva modusen gjør og hvilke andre moduser som finnes, står i
+[dokumentasjonen om permission modes](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode).
+
+### Om `/planlegg`
+
+Kommandoen leser kravfila og lager agentens **egen** implementasjonsplan. Den
+spør dere ikke om noe underveis -- er noe uavklart, tar den et valg og skriver
+at den tok det. Svaret er en liste over beslutninger, der hver har hva agenten
+velger og hva valget bygger på, og tre korte avsnitt til slutt: alternativer den
+forkastet, hva den antar, og hva den ville gjort først. Maks 250 ord.
+
+Merk at den er en annen type kommando enn `/orienter`. Der ga svaret dere
+oppgaver å løse; her får dere et ferdig svar, og oppgaven er å være uenig med
+det. Hva dere skal gjøre med planen står derfor i fremgangsmåten under, ikke i
+kommandoens svar.
+
 ### Fremgangsmåte
 
-1. **Skriv gruppas egen plan, på papir.** Bruk arket
-   `docs/workshop/utskrifter/steg-2-gruppens-plan.md`. Ingen prompt, ingen
-   agent.
-2. **Kjør `/planlegg`.** Gå inn i plan mode først -- Shift+Tab, eller skriv
-   `/plan`. Agenten lager sin egen plan uten å ha sett deres.
-3. **Sammenlign planene.** Først dere imellom, så sammen med agenten. Dette er
+1. **Skriv gruppas egen plan utenfor repoet.** På papir, i Notater på Mac-en,
+   eller et hvilket som helst dokument som ikke ligger i kodebasen.
+
+   Planen har formatkrav, ikke innholdskrav: den er en liste over beslutninger
+   dere mener må tas, og for hver -- hva dere velger, og hva valget bygger på,
+   enten det dere har lest i koden eller "antatt" hvis dere ikke har sjekket.
+   Dere får ingen liste over hva som må besvares; å finne ut hvilke
+   beslutninger som hører hjemme er oppgaven.
+
+2. **Gå inn i plan mode.** Shift+Tab til statuslinja viser `⏸ plan mode on`,
+   eller skriv `/plan`. Ikke hopp over dette.
+
+3. **Kjør `/planlegg`.** Agenten lager sin egen plan uten å ha sett deres. Det
+   er ikke tungvint med vilje: en agent som får en ferdig plan å forholde seg
+   til, forankrer seg i den og bekrefter den i stedet for å tenke selv.
+
+4. **Sammenlign planene.** Først dere imellom, så sammen med agenten. Dette er
    den viktigste delen, og den skal ha mest tid.
-4. **Lag grenen deres.** Gå ut av plan mode med Shift+Tab -- ikke ved å
+
+   To planer som spriker er hele læringen i steget. Snakk først sammen: hvor er
+   de uenige, og hvilken uenighet betyr egentlig noe? Ta så diskusjonen med
+   agenten -- «her er det vi kom fram til» -- og iterer videre.
+
+   > 💡 **Tips:** En agent som blir spurt «hva synes du om vårt forslag?» har
+   > en sterk tendens til å si seg enig. Spør heller hva som taler *imot*
+   > valget deres, eller hva som går galt hvis dere tar feil. Da får dere en
+   > motstemme i stedet for et ekko.
+
+5. **Lag grenen deres.** Gå ut av plan mode med Shift+Tab -- ikke ved å
    godkjenne planen, det starter implementasjonen. Så
    `git checkout -b <gruppenavn>`.
-5. **Lås planen.** Be agenten skrive planen dere landet på til
+
+6. **Lås planen.** Be agenten skrive planen dere landet på til
    `plans/ferdig-plan.md`, og les gjennom fila. Det er deres plan som skal stå
    der -- ikke agentens, og ikke den ene eller den andre avskrevet, men det dere
    faktisk skal gjøre. Har dere endret mening om noe underveis, skriv kort
    hvorfor.
-6. **Plenum.**
 
-### Hvorfor deres egen plan kommer først
-
-Det er ikke tungvint med vilje: en agent som får en ferdig plan å forholde seg
-til, forankrer seg i den og bekrefter den i stedet for å tenke selv. Derfor skal
-den ikke se planen deres før svaret fra `/planlegg` står på skjermen. Etter det
-er uavhengigheten sikret, og da tar dere diskusjonen med den også.
-
-### Hva planen skal inneholde
-
-Planen har formatkrav, ikke innholdskrav. Den er en liste over beslutninger dere
-mener må tas, og for hver: hva dere velger, og hva valget bygger på -- det dere
-har lest i koden, eller "antatt" hvis dere ikke har sjekket.
-
-Dere får ingen liste over hva som må besvares. Å finne ut hvilke beslutninger
-som hører hjemme er oppgaven.
-
-### Sammenligningen
-
-To planer som spriker er hele læringen i steget. Snakk først sammen: hvor er de
-uenige, og hvilken uenighet betyr egentlig noe? Ta så diskusjonen med agenten --
-«her er det vi kom fram til» -- og iterer videre.
-
-> 💡 **Tips:** En agent som blir spurt «hva synes du om vårt forslag?» har en
-> sterk tendens til å si seg enig. Spør heller hva som taler *imot* valget
-> deres, eller hva som går galt hvis dere tar feil. Da får dere en motstemme i
-> stedet for et ekko.
+7. **Plenum.**
 
 Dere er ferdige når dere kan si grunnen til hver beslutning, ikke når agenten
 slutter å foreslå forbedringer.
@@ -174,10 +206,11 @@ slutter å foreslå forbedringer.
 
 ## Steg 3: Utfør
 
-Nå implementeres featuren. Agenten kommer til å skrive mesteparten av koden, og
-det er meningen -- poenget er ikke hvem som taster, men at valgene underveis er
-deres. Målet er ikke at dere skal ha skrevet featuren for hånd, men at dere
-etterpå kan forklare hva som ble lagt til og hvorfor det ser ut som det gjør.
+Når dere har landet på en plan, er neste steg å implementere featuren. Agenten
+kommer til å skrive mesteparten av koden, og det er meningen -- poenget er ikke
+hvem som taster, men at valgene underveis er deres. Målet er ikke at dere skal
+ha skrevet featuren for hånd, men at dere etterpå kan forklare hva som ble lagt
+til og hvorfor det ser ut som det gjør.
 Det er et helt annet sted å komme til enn enter-enter-enter.
 
 ### Fremgangsmåte
@@ -340,8 +373,8 @@ npm install
 npm run dev
 ```
 
-`npm run dev` starter backend på http://localhost:3000 og frontend på
-http://localhost:5173. Åpne frontend-adressen i nettleseren.
+`npm run dev` starter backend på http://localhost:3001 og frontend på
+http://localhost:3000. Åpne frontend-adressen i nettleseren.
 
 Databasefila (`server/data/bookings.db`) opprettes og fylles med noen rom og
 bookinger første gang backend starter. Vil du begynne på nytt, slett fila og

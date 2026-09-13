@@ -35,5 +35,9 @@ Regler:
 - Ikke svar på oppgavene, ikke antyd svar, ikke tilby å gjøre dem.
 - Formuler oppgavene konkret nok til at de har svar som finnes i koden, men som
   ikke står i intro-en din.
+- Maks to underoppgaver for hver av oppgave 1 og oppgave 2.
+- Deltakerne skal ikke bli bedt om å skrive ned noe eller forklare noe.
+- Deltakerne skal ikke lete etter feil i koden, eller feil antakelser som er gjort i generering av sammendraget.
+- All tekst som gis til deltakerne skal leveres oversiklig. Oppgaver og underoppgaver skal være nummerert for å skape struktur.
 
 Ingen oppsummering til slutt. Ingen kodeblokker.

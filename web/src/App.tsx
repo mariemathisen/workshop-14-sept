@@ -37,7 +37,7 @@ export function App() {
       {status === 'loading' && <p className="notice">Loading rooms…</p>}
       {status === 'failed' && (
         <p className="notice notice-error">
-          Could not reach the API. Make sure the server is running on port 3000, then reload.
+          Could not reach the API. Make sure the server is running on port 3001, then reload.
         </p>
       )}
 

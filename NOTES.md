@@ -154,7 +154,7 @@ med seed-dataene.
 ### Frontend
 
 React 19 med Vite, i `web/`. Tre komponenter og en API-klient. Dev-serveren
-proxyer `/api` til port 3000, så nettleseren ser alt på samme origin og slipper
+proxyer `/api` til port 3001, så nettleseren ser alt på samme origin og slipper
 CORS.
 
 `api.ts` kaster `ApiError` med meldingen fra serveren. `BookingForm` fanger den
@@ -198,10 +198,11 @@ legge til noe. Verktøyene for den sjekken er ryddet bort igjen.
 4. **Ikke testet i en ekte nettleser.** jsdom-kjøringen dekker data, logikk og
    feilhåndtering, men ikke at CSS-en ser riktig ut. Ta ett øyekast før dere
    kjører workshopen.
-5. **Portene 3000 og 5173 er hardkodet** i `server/src/config.ts` og
-   `web/vite.config.ts`. Backend-porten kan overstyres med `PORT`, men da må
-   proxyen i Vite endres tilsvarende. Verdt å sjekke at ingen deltakere har noe
-   annet kjørende på de portene.
+5. **Portene 3001 og 3000 er hardkodet** i `server/src/config.ts` og
+   `web/vite.config.ts`. Frontend ligger på 3000 fordi det er porten folk
+   forventer; backend måtte derfor flytte til 3001. Backend-porten kan
+   overstyres med `PORT`, men da må proxyen i Vite endres tilsvarende. Verdt å
+   sjekke at ingen deltakere har noe annet kjørende på de portene.
 
 ## Til deg som fasiliterer
 
