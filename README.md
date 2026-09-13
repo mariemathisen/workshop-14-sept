@@ -3,7 +3,8 @@
 Dere skal legge til én feature i en kodebase dere aldri har sett før:
 gjentakende booking, altså at en bruker kan opprette en serie bookinger i stedet
 for én. Det gjør dere sammen med Claude Code, og agenten kommer til å skrive
-mesteparten av koden. Det er med vilje. Hva som kreves av featuren står i steg 2.
+mesteparten av koden. Det er med vilje. Hva som kreves av featuren står i
+steg 2.
 
 Målet er ikke å gå fortere, og ikke å lære et verktøy å kjenne. Det er å forstå
 koden dere er med på å lage, godt nok til å stå inne for den. Dere er i mål når
