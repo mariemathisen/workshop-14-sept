@@ -1,17 +1,18 @@
 # Workshop: Claude Code i en ukjent kodebase
 
-Denne workshopen handler om hvordan du bygger teknisk forståelse mens du jobber
-agentisk med Claude Code. Målet er ikke å gå fortere, og ikke å lære et verktøy
-å kjenne -- det er å forstå koden du er med på å lage, godt nok til å stå inne
-for den.
-
-Dere skal legge til én feature i en kodebase dere ikke har sett før:
+Dere skal legge til én feature i en kodebase dere aldri har sett før:
 gjentakende booking, altså at en bruker kan opprette en serie bookinger i stedet
-for én. Hva som kreves av featuren står i steg 2.
+for én. Det gjør dere sammen med Claude Code, og agenten kommer til å skrive
+mesteparten av koden. Det er med vilje. Hva som kreves av featuren står i steg 2.
+
+Målet er ikke å gå fortere, og ikke å lære et verktøy å kjenne. Det er å forstå
+koden dere er med på å lage, godt nok til å stå inne for den. Dere er i mål når
+featuren virker og dere kan forklare hver beslutning i den til en kollega som
+ikke satt der.
 
 Jobben er delt i fem steg som til sammen er én sammenhengende oppgave. Hvert
-steg introduserer en teknikk, og teknikkene læres ved å gjøre jobben, ikke ved
-å bli forklart.
+steg introduserer en teknikk dere kan ta med til et hvilket som helst repo
+etterpå, og teknikkene læres ved å gjøre jobben, ikke ved å bli forklart.
 
 To kjøreregler gjelder hele veien. Spørsmål om språket og rammeverket stiller
 dere med `/btw` -- en innebygget kommando i Claude Code for et sidespørsmål, som
@@ -19,7 +20,8 @@ ikke avbryter det agenten holder på med. Den kan ikke lese filer, og det er
 poenget: spørsmål om denne kodebasen besvarer dere ved å åpne filen selv. Og
 ingen påstand om koden teller før noen har vist fil:linje.
 
-Node-kravet, oppstart av appen og kjøring av testene står nederst i denne fila.
+Hva appen gjør, hvordan den startes og hvordan testene kjøres, står nederst i
+denne fila.
 
 ## Steg 1: Bli kjent med kodebasen
 
