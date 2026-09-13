@@ -246,15 +246,17 @@ gjør.
 
    ```json
    {
-     "outputStyle": "Explanatory"
+     "outputStyle": "Explanatory",
+     "promptSuggestionEnabled": false
    }
    ```
 
-   Bytt den ut med dette:
+   Endre `outputStyle` til `"Learning"`, og la den andre nøkkelen stå:
 
    ```json
    {
-     "outputStyle": "Learning"
+     "outputStyle": "Learning",
+     "promptSuggestionEnabled": false
    }
    ```
 
@@ -381,7 +383,8 @@ ord, er dere ikke klare til å sende den.
    > Tab fyller den inn. Under quizen ville det gitt dere svaret før dere rakk
    > å tenke. Derfor står `promptSuggestionEnabled: false` i
    > `.claude/settings.local.json` i dette repoet. Den gjelder hele økta, ikke
-   > bare dette steget, så den beskytter også planen dere skriver selv i steg 2.
+   > bare dette steget. Det er med vilje: i steg 3 stiller agenten spørsmål
+   > dere skal svare på selv, før den skriver noe.
    >
    > <div style="height:1px"></div>
 
