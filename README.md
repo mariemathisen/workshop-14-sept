@@ -91,8 +91,10 @@ featuren står i
    godkjenne planen, det starter implementasjonen. Så
    `git checkout -b <gruppenavn>`.
 5. **Lås planen.** Be agenten skrive planen dere landet på til
-   `plans/ferdig-plan-<gruppenavn>.md`, og les gjennom fila. Det er deres plan
-   som skal stå der, ikke agentens.
+   `plans/ferdig-plan.md`, og les gjennom fila. Det er deres plan som skal stå
+   der -- ikke agentens, og ikke den ene eller den andre avskrevet, men det dere
+   faktisk skal gjøre. Har dere endret mening om noe underveis, skriv kort
+   hvorfor.
 6. **Plenum.**
 
 ### Hvorfor deres egen plan kommer først
@@ -165,10 +167,10 @@ Det er et helt annet sted å komme til enn enter-enter-enter.
 2. **Start Claude Code på nytt** og kjør `claude -c`, så beholder dere
    konteksten fra steg 1 og 2.
 
-3. **Lim inn prompten**, med deres eget filnavn i første linje:
+3. **Lim inn prompten:**
 
    ```
-   Planen min ligger i plans/ferdig-plan-<gruppenavn>.md og skal implementeres nå.
+   Planen min ligger i plans/ferdig-plan.md og skal implementeres nå.
 
    Vi jobber i biter. For hver bit:
    - Jeg avgrenser. Foreslå ikke en avgrensning selv.
