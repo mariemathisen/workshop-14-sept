@@ -48,8 +48,7 @@ request går gjennom, hvilke entiteter og endepunkter som finnes, hvor
 skrivereglene bor, og hvordan appen og testene kjøres. Svaret er begrenset til
 300 ord -- et kart skal være kort nok til å leses i ett jafs.
 
-> [!NOTE]
-> Kommandoen er read-only. Ikke be den om endringer, og ikke skriv
+> ℹ️ **Merk:** Kommandoen er read-only. Ikke be den om endringer, og ikke skriv
 > `/orienter og fiks X`.
 
 ### De fire oppgavene til slutt
@@ -59,9 +58,9 @@ statuskode; åpne to av filene og sjekke at linjenumrene stemmer; skrive av én
 linje kode ordrett fra filen der reglene håndheves; og velge én skriveoperasjon
 dere vil følge i dybden.
 
-> [!IMPORTANT]
-> Ikke be Claude gjøre dem for dere. Poenget er at dere selv verifiserer kartet
-> mot terrenget -- det er slik dere oppdager når en modell tar feil.
+> ❗ **Viktig:** Ikke be Claude gjøre dem for dere. Poenget er at dere selv
+> verifiserer kartet mot terrenget -- det er slik dere oppdager når en modell
+> tar feil.
 
 Dere er ferdige når de fire oppgavene er gjort. Ingenting skal leveres. Det dere
 sitter igjen med er kjennskap til kodebasen, og det er grunnlaget steg 2 hviler
@@ -76,9 +75,8 @@ valgene skal tas bevisst, av dere, før noe som helst blir skrevet. Kravene til
 featuren står i
 [docs/workshop/feature-gjentakende-booking.md](docs/workshop/feature-gjentakende-booking.md).
 
-> [!WARNING]
-> Ingenting implementeres her. Når Claude Code spør om planen skal settes ut i
-> livet, svarer dere nei -- featuren skrives i steg 3.
+> ⚠️ **Pass på:** Ingenting implementeres her. Når Claude Code spør om planen
+> skal settes ut i livet, svarer dere nei -- featuren skrives i steg 3.
 
 ### Fremgangsmåte
 
@@ -119,19 +117,18 @@ To planer som spriker er hele læringen i steget. Snakk først sammen: hvor er d
 uenige, og hvilken uenighet betyr egentlig noe? Ta så diskusjonen med agenten --
 «her er det vi kom fram til» -- og iterer videre.
 
-> [!TIP]
-> En agent som blir spurt «hva synes du om vårt forslag?» har en sterk tendens
-> til å si seg enig. Spør heller hva som taler *imot* valget deres, eller hva
-> som går galt hvis dere tar feil. Da får dere en motstemme i stedet for et
-> ekko.
+> 💡 **Tips:** En agent som blir spurt «hva synes du om vårt forslag?» har en
+> sterk tendens til å si seg enig. Spør heller hva som taler *imot* valget
+> deres, eller hva som går galt hvis dere tar feil. Da får dere en motstemme i
+> stedet for et ekko.
 
 Dere er ferdige når dere kan si grunnen til hver beslutning, ikke når agenten
 slutter å foreslå forbedringer.
 
-> [!NOTE]
-> Plan mode lagrer sitt eget notat under `~/.claude/plans/`. Det er Claude Code
-> som gjør det, ikke kommandoen, og notatet blir aldri tracket av git -- ikke
-> fordi det er ignorert, men fordi git bare ser filer som ligger inne i repoet.
+> ℹ️ **Merk:** Plan mode lagrer sitt eget notat under `~/.claude/plans/`. Det
+> er Claude Code som gjør det, ikke kommandoen, og notatet blir aldri tracket
+> av git -- ikke fordi det er ignorert, men fordi git bare ser filer som ligger
+> inne i repoet.
 
 ---
 
@@ -196,9 +193,8 @@ Det er et helt annet sted å komme til enn enter-enter-enter.
    hvilke tilfeller testene skal dekke. Tilfellene er deres, testkoden er
    agentens.
 
-> [!NOTE]
-> Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er en del av
-> utviklerjobben, og det finnes ingen fasit.
+> ℹ️ **Merk:** Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er
+> en del av utviklerjobben, og det finnes ingen fasit.
 
 ### `TODO(human)` er deres del
 
@@ -207,11 +203,10 @@ vilkår eller en regel, altså der dere må ha forstått kodebasen for å skrive
 riktig. Den stopper og venter: den går ikke videre av seg selv før hullet er
 fylt ut.
 
-> [!TIP]
-> Står dere fast, finnes det to veier som ikke gir dere svaret gratis. `/btw`
-> for språk og syntaks -- den kan ikke lese koden deres, og kan derfor ikke
-> skrive hullet for dere. Eller be agenten forklare koden som allerede står der,
-> ikke foreslå hva som skal stå i hullet.
+> 💡 **Tips:** Står dere fast, finnes det to veier som ikke gir dere svaret
+> gratis. `/btw` for språk og syntaks -- den kan ikke lese koden deres, og kan
+> derfor ikke skrive hullet for dere. Eller be agenten forklare koden som
+> allerede står der, ikke foreslå hva som skal stå i hullet.
 
 Agenten legger selv ved en «Guidance»-del når den overleverer en TODO; les den
 som momenter å vurdere, ikke som en oppskrift.
@@ -233,8 +228,8 @@ kort med vilje.
    tester, og se at de faktisk sier fra. Sett koden tilbake etterpå.
 2. **Åpne frontenden og utfør featuren manuelt.**
 
-> [!IMPORTANT]
-> En test som står grønn uansett hva dere gjør med koden, tester ingenting.
+> ❗ **Viktig:** En test som står grønn uansett hva dere gjør med koden, tester
+> ingenting.
 
 ---
 
@@ -250,9 +245,9 @@ ord, er dere ikke klare til å sende den.
 2. **Skriv PR-beskrivelsen selv**, i egne ord. Den skal si hva som ble lagt til,
    hvilke valg dere tok, og hva som eventuelt ikke er dekket.
 
-> [!IMPORTANT]
-> Ikke be agenten formulere PR-beskrivelsen, og ikke let i chat-loggen etter hva
-> den sa underveis. Det er deres forståelse som skal stå på prøve her.
+> ❗ **Viktig:** Ikke be agenten formulere PR-beskrivelsen, og ikke let i
+> chat-loggen etter hva den sa underveis. Det er deres forståelse som skal stå
+> på prøve her.
 
 ---
 
