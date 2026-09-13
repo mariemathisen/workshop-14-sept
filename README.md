@@ -21,12 +21,16 @@ dere med `/btw`, en innebygget kommando i Claude Code for et sidespørsmål. Den
 avbryter ikke det agenten holder på med, og kan ikke lese filer. Og ingen
 påstand om koden teller før noen har vist fil:linje.
 
+---
+
 ## Steg 1: Bli kjent med kodebasen
 
 Dette steget går ut på å orientere seg i kodebasen. Dere skal skaffe dere et
 kart over hva som finnes i den, og så lese koden selv i stedet for å nøye dere
 med et sammendrag. Verktøyet er `/orienter`, en kommando som ligger i dette
 repoet.
+
+### Fremgangsmåte
 
 1. **Få appen til å kjøre.** `npm install`, deretter `npm run dev`. Åpne
    frontend-adressen i nettleseren og sjekk at dere ser data.
@@ -37,22 +41,33 @@ repoet.
 4. **Gjør de fire oppgavene svaret avsluttes med.** Selv, i editoren og i
    nettleseren.
 
+### Om `/orienter`
+
 Kommandoen ber Claude svare på seks ting: hva applikasjonen gjør, hvilke lag en
 request går gjennom, hvilke entiteter og endepunkter som finnes, hvor
 skrivereglene bor, og hvordan appen og testene kjøres. Svaret er begrenset til
-300 ord -- et kart skal være kort nok til å leses i ett jafs. Den er read-only:
-ikke be den om endringer, og ikke skriv `/orienter og fiks X`.
+300 ord -- et kart skal være kort nok til å leses i ett jafs.
 
-De fire oppgavene til slutt er obligatoriske: kjøre appen i nettleseren og
-notere path, request-body og statuskode; åpne to av filene og sjekke at
-linjenumrene stemmer; skrive av én linje kode ordrett fra filen der reglene
-håndheves; og velge én skriveoperasjon dere vil følge i dybden. Ikke be Claude
-gjøre dem for dere -- poenget er at dere selv verifiserer kartet mot terrenget.
-Det er slik dere oppdager når en modell tar feil.
+> [!NOTE]
+> Kommandoen er read-only. Ikke be den om endringer, og ikke skriv
+> `/orienter og fiks X`.
+
+### De fire oppgavene til slutt
+
+De er obligatoriske: kjøre appen i nettleseren og notere path, request-body og
+statuskode; åpne to av filene og sjekke at linjenumrene stemmer; skrive av én
+linje kode ordrett fra filen der reglene håndheves; og velge én skriveoperasjon
+dere vil følge i dybden.
+
+> [!IMPORTANT]
+> Ikke be Claude gjøre dem for dere. Poenget er at dere selv verifiserer kartet
+> mot terrenget -- det er slik dere oppdager når en modell tar feil.
 
 Dere er ferdige når de fire oppgavene er gjort. Ingenting skal leveres. Det dere
 sitter igjen med er kjennskap til kodebasen, og det er grunnlaget steg 2 hviler
 på: en plan bygget på gjetninger blir en dårlig plan.
+
+---
 
 ## Steg 2: Planlegg
 
@@ -61,8 +76,11 @@ valgene skal tas bevisst, av dere, før noe som helst blir skrevet. Kravene til
 featuren står i
 [docs/workshop/feature-gjentakende-booking.md](docs/workshop/feature-gjentakende-booking.md).
 
-Ingenting implementeres her. Når Claude Code spør om planen skal settes ut i
-livet, svarer dere nei -- featuren skrives i steg 3.
+> [!WARNING]
+> Ingenting implementeres her. Når Claude Code spør om planen skal settes ut i
+> livet, svarer dere nei -- featuren skrives i steg 3.
+
+### Fremgangsmåte
 
 1. **Skriv gruppas egen plan, på papir.** Bruk arket
    `docs/workshop/utskrifter/steg-2-gruppens-plan.md`. Ingen prompt, ingen
@@ -72,37 +90,50 @@ livet, svarer dere nei -- featuren skrives i steg 3.
 3. **Sammenlign planene.** Først dere imellom, så sammen med agenten. Dette er
    den viktigste delen, og den skal ha mest tid.
 4. **Lag grenen deres.** Gå ut av plan mode med Shift+Tab -- ikke ved å
-   godkjenne planen, det starter implementasjonen. Så `git checkout -b
-   <gruppenavn>`.
+   godkjenne planen, det starter implementasjonen. Så
+   `git checkout -b <gruppenavn>`.
 5. **Lås planen.** Be agenten skrive planen dere landet på til
    `plans/<gruppenavn>.md`, og les gjennom fila. Det er deres plan som skal stå
    der, ikke agentens.
 6. **Plenum.**
 
-At dere skriver deres egen plan først er ikke tungvint med vilje: en agent som
-får en ferdig plan å forholde seg til, forankrer seg i den og bekrefter den i
-stedet for å tenke selv. Derfor skal den ikke se planen deres før svaret fra
-`/planlegg` står på skjermen. Etter det er uavhengigheten sikret, og da tar dere
-diskusjonen med den også.
+### Hvorfor deres egen plan kommer først
+
+Det er ikke tungvint med vilje: en agent som får en ferdig plan å forholde seg
+til, forankrer seg i den og bekrefter den i stedet for å tenke selv. Derfor skal
+den ikke se planen deres før svaret fra `/planlegg` står på skjermen. Etter det
+er uavhengigheten sikret, og da tar dere diskusjonen med den også.
+
+### Hva planen skal inneholde
 
 Planen har formatkrav, ikke innholdskrav. Den er en liste over beslutninger dere
 mener må tas, og for hver: hva dere velger, og hva valget bygger på -- fil:linje
-hvis dere har lest det i koden, "antatt" hvis ikke. Dere får ingen liste over
-hva som må besvares. Å finne ut hvilke beslutninger som hører hjemme er
-oppgaven.
+hvis dere har lest det i koden, "antatt" hvis ikke.
+
+Dere får ingen liste over hva som må besvares. Å finne ut hvilke beslutninger
+som hører hjemme er oppgaven.
+
+### Sammenligningen
 
 To planer som spriker er hele læringen i steget. Snakk først sammen: hvor er de
 uenige, og hvilken uenighet betyr egentlig noe? Ta så diskusjonen med agenten --
-«her er det vi kom fram til» -- og iterer videre. Men vær klar over at en agent
-som blir spurt «hva synes du om vårt forslag?» har en sterk tendens til å si seg
-enig. Spør heller hva som taler *imot* valget deres, eller hva som går galt hvis
-dere tar feil. Dere er ferdige når dere kan si grunnen til hver beslutning, ikke
-når agenten slutter å foreslå forbedringer.
+«her er det vi kom fram til» -- og iterer videre.
 
-Til orientering: plan mode lagrer sitt eget notat under `~/.claude/plans/`. Det
-er Claude Code som gjør det, ikke kommandoen, og notatet blir aldri tracket av
-git -- ikke fordi det er ignorert, men fordi git bare ser filer som ligger inne
-i repoet.
+> [!TIP]
+> En agent som blir spurt «hva synes du om vårt forslag?» har en sterk tendens
+> til å si seg enig. Spør heller hva som taler *imot* valget deres, eller hva
+> som går galt hvis dere tar feil. Da får dere en motstemme i stedet for et
+> ekko.
+
+Dere er ferdige når dere kan si grunnen til hver beslutning, ikke når agenten
+slutter å foreslå forbedringer.
+
+> [!NOTE]
+> Plan mode lagrer sitt eget notat under `~/.claude/plans/`. Det er Claude Code
+> som gjør det, ikke kommandoen, og notatet blir aldri tracket av git -- ikke
+> fordi det er ignorert, men fordi git bare ser filer som ligger inne i repoet.
+
+---
 
 ## Steg 3: Utfør
 
@@ -111,6 +142,8 @@ det er meningen -- poenget er ikke hvem som taster, men at valgene underveis er
 deres. Målet er ikke at dere skal ha skrevet featuren for hånd, men at dere
 etterpå kan forklare hva som ble lagt til og hvorfor det ser ut som det gjør.
 Det er et helt annet sted å komme til enn enter-enter-enter.
+
+### Fremgangsmåte
 
 1. **Bytt output style.** Åpne `.claude/settings.local.json`. Slik ser den ut
    nå:
@@ -163,22 +196,30 @@ Det er et helt annet sted å komme til enn enter-enter-enter.
    hvilke tilfeller testene skal dekke. Tilfellene er deres, testkoden er
    agentens.
 
-Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er en del av
-utviklerjobben, og det finnes ingen fasit.
+> [!NOTE]
+> Hvordan jobben stykkes opp i biter, bestemmer dere selv. Det er en del av
+> utviklerjobben, og det finnes ingen fasit.
 
-**`TODO(human)` er deres del.** Agenten skriver rammen rundt og lar ett hull stå
-tomt -- i en beregning, et vilkår eller en regel, altså der dere må ha forstått
-kodebasen for å skrive noe riktig. Den stopper og venter: den går ikke videre av
-seg selv før hullet er fylt ut.
+### `TODO(human)` er deres del
 
-Står dere fast, finnes det to veier som ikke gir dere svaret gratis. `/btw` for
-språk og syntaks -- den kan ikke lese koden deres, og kan derfor ikke skrive
-hullet for dere. Eller be agenten forklare koden som allerede står der, ikke
-foreslå hva som skal stå i hullet. Agenten legger selv ved en «Guidance»-del når
-den overleverer en TODO; les den som momenter å vurdere, ikke som en oppskrift.
+Agenten skriver rammen rundt og lar ett hull stå tomt -- i en beregning, et
+vilkår eller en regel, altså der dere må ha forstått kodebasen for å skrive noe
+riktig. Den stopper og venter: den går ikke videre av seg selv før hullet er
+fylt ut.
+
+> [!TIP]
+> Står dere fast, finnes det to veier som ikke gir dere svaret gratis. `/btw`
+> for språk og syntaks -- den kan ikke lese koden deres, og kan derfor ikke
+> skrive hullet for dere. Eller be agenten forklare koden som allerede står der,
+> ikke foreslå hva som skal stå i hullet.
+
+Agenten legger selv ved en «Guidance»-del når den overleverer en TODO; les den
+som momenter å vurdere, ikke som en oppskrift.
 
 Steget slutter når alle TODO-ene er fylt ut og testene er skrevet. Ta med
 `git diff` og testfila videre til steg 4.
+
+---
 
 ## Steg 4: Test
 
@@ -186,22 +227,34 @@ Her ser dere om det faktisk virker. Både i testene og i grensesnittet, for de
 svarer ikke alltid det samme. Dette steget gjør dere uten agenten, og det er
 kort med vilje.
 
+### Fremgangsmåte
+
 1. **Kjør testene.** Forsøk så å få noen av dem til å feile -- endre koden de
-   tester, og se at de faktisk sier fra. En test som står grønn uansett, tester
-   ingenting. Sett koden tilbake etterpå.
+   tester, og se at de faktisk sier fra. Sett koden tilbake etterpå.
 2. **Åpne frontenden og utfør featuren manuelt.**
+
+> [!IMPORTANT]
+> En test som står grønn uansett hva dere gjør med koden, tester ingenting.
+
+---
 
 ## Steg 5: Quiz før PR
 
 Siste sjekk før endringen sendes fra dere. Kan dere ikke forklare den i egne
 ord, er dere ikke klare til å sende den.
 
+### Fremgangsmåte
+
 1. **Kjør `/quiz`** og svar muntlig. Å slå opp i koden underveis er helt greit
-   -- det er sånn man jobber. Å lete i chat-loggen etter hva agenten sa, er ikke
-   poenget.
-2. **Skriv PR-beskrivelsen selv**, i egne ord. Ikke be agenten formulere den.
-   Den skal si hva som ble lagt til, hvilke valg dere tok, og hva som eventuelt
-   ikke er dekket.
+   -- det er sånn man jobber.
+2. **Skriv PR-beskrivelsen selv**, i egne ord. Den skal si hva som ble lagt til,
+   hvilke valg dere tok, og hva som eventuelt ikke er dekket.
+
+> [!IMPORTANT]
+> Ikke be agenten formulere PR-beskrivelsen, og ikke let i chat-loggen etter hva
+> den sa underveis. Det er deres forståelse som skal stå på prøve her.
+
+---
 
 ## Hvor Claude Code legger tingene sine
 
